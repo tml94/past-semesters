@@ -1,0 +1,1416 @@
+\documentclass[18pt]{scrartcl}
+\usepackage[scale=1.5]{ccicons}
+\usepackage[notextcomp]{kpfonts} 
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsthm,amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{bm}
+\usepackage{tabu}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{wasysym}
+
+
+
+\usepackage{color}
+\definecolor{darkblue}{rgb}{0, 0, .6}
+\definecolor{grey}{rgb}{.7, .7, .7}
+\usepackage[breaklinks]{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=darkblue,
+	anchorcolor=darkblue,
+	citecolor=darkblue,
+	pagecolor=darkblue,
+	urlcolor=darkblue,
+	pdftitle={},
+	pdfauthor={}
+}
+\usepackage{fancyhdr}
+%\thispagestyle{fancy}
+%\lhead{}
+%\chead{}
+%\rhead{}
+%\lfoot{}%\scriptsize This work is licensed under the \href{http://creativecommons.org/licenses/by-sa/3.0/us/}{Creative Commons Attribution-Share Alike 3.0 License}.} 
+%\cfoot{}
+%\rfoot{\ccbysa}
+\renewcommand{\headrulewidth}{.4pt}
+%\renewcommand{\footrulewidth}{.4pt}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem*{claim*}{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{journal}[theorem]{Journal}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem*{problem*}{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newtheorem{skeleton}[theorem]{Skeleton Proof}
+\newtheorem{activity}[theorem]{Activity}
+\newtheorem{intuitivedef}[theorem]{Intuitive Definition}
+
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\Char}{Characteristic}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\stab}{Stab}
+\DeclareMathOperator{\Stab}{Stab}
+\DeclareMathOperator{\orb}{\mathcal{O}}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\gl}{GL}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\A}{\mathbb{A}}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\PS}{\mathcal{P}}
+\DeclareMathOperator{\acc}{acc}
+
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+\newcommand{\comment}[1]{%
+  \text{\phantom{(#1)}} \tag{#1}
+}
+
+
+%Useful for cut and paste
+%\begin{enumerate}[label=\rm{(\alph*)}]
+
+\begin{document}
+
+%%%%%%%%% Functions Lessons Stuff %%%%%%%%%%%
+
+%\noindent
+%	In a certain city, sales tax is 9\%. Write an expression to express the total cost of purchasing an item with selling price of $x$ dollars, after tax is added.
+%\newpage
+%\noindent			
+%	\textbf{Things you know about functions:}
+%
+%\newpage
+%\noindent
+%	\textbf{Things you need to know about functions:}
+%
+%\newpage
+%\noindent	
+%	As you drive at a fairly constant speed of approximately 60 mph from Tucson to Bisbee (94 miles) you pass through Benson, which is 40 miles from Tucson. Sketch a graph of your distance from Tucson against time. Indicate on your graph the time when you reach Benson.
+%		
+%			
+%\newpage
+%\noindent
+%	The following table shows market data that a sunglass manufacturer has gathered on a particular pair of sunglasses:
+%		\begin{center}
+%		\begin{tabular}{|l|l|l|l|l|l|}
+%		\hline
+%		Price                                      & \$46   & \$40   & \$37   & \$30   & \$27   \\ \hline
+%		Demand & 16,000 & 40,000 & 52,000 & 80,000 & 92,000 \\ \hline
+%		\end{tabular}
+%		\end{center}
+%		Does this table represent the demand as a function of the price? Why or why not? Does it represent the price as a function of the demand? Why or why not?
+%\newpage
+%\noindent
+%	For each of the following, determine the domain of the function, and evaluate $g(2)$ and $g(a+3)$.
+%	\begin{enumerate}
+%		\item $g(x)=3x^2-5x$
+%		\item $g(x)=\frac{2x-1}{x+3}$
+%		\item $g(x)=\sqrt{2-5x}-1$
+%	\end{enumerate}
+%	
+%	\noindent
+%	For the function $f(x)=3x^2-5x$, find $\frac{f(h+4)-f(4)}{h}$.	
+
+%%%%%%%%%%%%%%%%% Day 2 Handouts %%%%%%%%%%%%%%%%%%%%%%
+
+%\noindent
+%\textbf{Warm-up}\\
+%Let $f(x)= 5 \sqrt{x-3}$. Answer the following questions about $f(x)$:
+%\bigskip\\
+%\noindent
+%What is $f(7)$?\\
+%
+%\vspace{6cm}
+%\noindent
+%For what values of $x$ is $f(x)=0$?\\
+%
+%\vspace{6cm}
+%\noindent
+%For what values of $x$ is $f(x)$ defined in the real number system?
+%
+%\newpage
+%\noindent
+%\textbf{\large{Syllabus Concept Check}}\\
+%\textbf{Please answer the following questions on a sheet of paper to be turned in.}
+%\begin{enumerate}
+%	\item How many tests will you take for this class? 
+%	\item Are they in class or out of class tests?
+%	\item What are the three types of homework that you have to complete for this class?
+%	\item What is one thing that you are worried about for this class?
+%	\item What is one thing that you want to work on as a student in this class?
+%\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%% Day 3 Handouts %%%%%%%%%%%%%%%%%%%%%%%
+
+%\noindent
+%\textbf{Warm-up}\\
+%Let $g(x)=5x^2-4$. Find $\frac{g(h-4)-g(4)}{h}$.
+%\vspace{11cm}
+%
+%\noindent
+%	The following table shows market data that a sunglass manufacturer has gathered on a particular pair of sunglasses:
+%		\begin{center}
+%		\begin{tabular}{|l|l|l|l|l|l|}
+%		\hline
+%		Price                                      & \$46   & \$40   & \$37   & \$30   & \$27   \\ \hline
+%		Demand & 16,000 & 40,000 & 52,000 & 80,000 & 92,000 \\ \hline
+%		\end{tabular}
+%		\end{center}
+%		Does this table represent the demand as a function of the price? Why or why not?
+%		
+%\newpage
+%\noindent
+%A business has determined a mathematical model based on market data for its profit, $P$ (in dollars) as a function of the number of items sold, $x$. The model is given by the function $P(x)=-0.1x^2+150x-14,000$. Graph this function in an appropriate viewing window. Use the graph to determine the number of items that should be produced and sold in order to maximize profit.\\
+%
+%\newpage
+%\noindent
+%\textbf{Things you need to know about functions}
+%
+%\newpage
+%\noindent
+%A cup of coffee that is initially $150^\circ$ F is placed in a room kept at a constant $72^\circ$ F. The temperature of the coffee, $T$ as a function of time is given by $T(x)=72+79e^{-0.223x}$, where $x$ is measured in minutes. Graph the function $T(x)$ in an appropriate viewing window. Use the graph to determine the timeframe during which the coffee is at a good drinking temperature, between $120^\circ$ F and $140^\circ$ F.
+%
+%\newpage
+%\noindent
+%The cost, $C$ (in thousands of dollars), of removing $x$ percent of a certian pollutant from a lake is given by the formula $C(x)=\frac{18x}{100-x}$. Graph this function in an appropriate window.
+%
+%\newpage
+%\noindent
+%\textbf{Functions Concept Check \#1}\\
+%\begin{enumerate}
+%\item Find $f(3)$ when $f(x)=\sqrt{5x-6}+4$.
+%\item You drive at a constant speed from Tucson to Phoenix (130 miles) at approximately 60mph along the scenic route. Along the way you pass through Florence, which is 69 miles from Tucson. Sketch a graph of your Florence from Tucson against time. Indicate on your graph the time when you reach Florence. \vspace{3cm} 
+%\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%% Day 4 Handouts %%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\noindent
+%\textbf{Warm-Up}\\
+%The following is the graph of the function $P(x)=-0.1x^2+150x-14,000$ that we explored last time.\\
+%
+%\begin{center}
+%	\includegraphics[scale=0.50]{introtographs}
+%\end{center}
+%
+%\noindent
+%Use it to answer these questions:
+%\begin{enumerate}
+%	\item Where is the graph increasing? Decreasing? What does this tell you in practical terms?
+%	\item Where is the graph positive? Negative? What does this tell you in practical terms?
+%	\item What is the set of allowable inputs? What is the set of possible outputs?
+%\end{enumerate}
+%
+%\newpage
+%\noindent
+%\textbf{Concept Check \#1}\\
+%\noindent
+%\textit{Directions: Work individually in pencil until time is called. Then discuss with your nearest neighbor and make corrections in pen. Each person should show their work and turn in their paper. Any work done on the calculator should be indicated with a quick sketch or a description of the process used.}
+%
+%\vspace{1cm}
+%
+%\noindent
+%For the function $f(x)=\sqrt{13-x}$,
+%\begin{enumerate}
+%	\item Find $f(a-3)-f(4)$ 
+%	\vspace{6.5cm}
+%	\item What is the domain of $f(x)$?
+%\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%% Day 5 Handouts %%%%%%%%%%%%%%%%%%%%
+
+%\noindent
+%\textbf{Warm-Up}\\
+%The cost, $C$ (in thousands of dollars), of removing $x$ percent of a certain pollutant from a lake is given by the formula $C(x)=\frac{18x}{100-x}$. Graph this function in an appropriate window.
+%
+%\newpage
+%\noindent
+%A company produces a pair of skates for \$43.53 and sells each pair for \$89.95. The fixed costs incurred regardless of the number of skates produced are \$742.72. 
+%
+%
+%\newpage
+%\noindent
+%\textbf{Things to know about linear functions:}
+%
+%\newpage
+%\noindent
+%A business bought a machine for \$25,000. After 4 years, the machine is valued at \$10,000. Assume the value of the machine depreciates linearly. Express the value of the machine as a function of time in years. Graph this function in an appropriate viewing window.\\
+%
+%\newpage
+%\noindent
+%On most state highways, the fine for speeding depends on the speed of the car. In a certain state, the fine for driving 70 mph is \$25, and the fine for driving 85 mph is \$100. Assuming that this relationship is linear, write an equation for the fine as a function of the speed of the car.\\
+%
+%\newpage
+%\noindent
+%\textit{Directions: Work individually in pencil until time is called. Then discuss with your nearest neighbor and make corrections in pen. Each person should show their work and turn in their paper. Any work done on the calculator should be indicated with a quick sketch or a description of the process used.}
+%
+%\vspace{1cm}
+%
+%\begin{center}
+%	\includegraphics[scale=0.3]{conceptcheck3}
+%\end{center}
+%
+%\noindent
+%Please identify all of the following features of the graph:
+%\begin{enumerate}
+%	\item Domain:
+%	\item Range:
+%	\item Interval(s) on which the function is increasing:
+%	\item Interval(s) on which the function is decreasing:
+%	\item Interval(s) on which the function is negative:
+%	\item Interval(s) on which the function is positive:
+%\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%% Day 6 Handouts %%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{enumerate}
+%	\item Determine an equation of the linear function passing through the points $(-4,5)$ and $(2,1)$.
+%	\vspace{9cm}
+%	\item Determine an equation in slope-intercept form for the linear function graphed below. Identify the intercepts.\\ \begin{center} \includegraphics[scale=0.35]{Lineargraph} \end{center}
+%\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%% Day 7 Handouts %%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\noindent
+%\textbf{Warm-Up}\\
+%A bathtub is full of water. The amount of water (in gallons) in the bathtub is given by the formula $W(t)=42-0.2t$, where $t$ represents time, in seconds, after the plug is pulled to empty the bathtub. \\
+%
+%\noindent
+%What is the slope? What does it represent in practical terms?\\
+%
+%\vspace{7cm}
+%
+%\noindent
+%What are the intercepts? What do they represent in practical terms.
+%
+%\vspace{7cm}
+%
+%\noindent
+%Determine the $x$-intercept for the line $4x-\frac{y}{3}=24$.
+%
+%
+%\newpage
+%\noindent
+%A concert will be held at a local park. Having done research the organizers of the concert know that if tickets are sold for \$25, there will be 1,500 people that attend. If tickets are sold for \$30, there will be 1,380 tickets sold. Assume that the relationship between price of tickets and number of tickets sold is linear.\\
+%
+%\noindent
+%Determine a formula for the quantity of tickets sold, $q$, as a function of price $p$.\\
+%
+%\vspace{5cm}
+%
+%\noindent
+%If the organizers want at least 2,000 people to attend, how much should they sell tickets for?\\
+%
+%\vspace{5cm}
+%
+%\noindent
+%How much money will the organizers make if the want at least 1,000 people to attend?
+
+%%%%%%%%%%%%%%%%%%%%%%%% Day 8 Handouts %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\noindent
+%A cell phone carrier charges \$50 per month per line, with 2gb of data included. Users who exceed 2gb of data are charged \$15 per gb over 2gb. Express the total monthly cost as a function of the number of gb of data used. Use this information to answer the following questions.
+%\vspace{1.5cm}
+%
+%\noindent
+%What is the independent variable? What is the dependent variable?\\
+%
+%\vspace{2.5cm}
+%
+%\noindent
+%Create a table of values to represent this situation.
+%
+%\newpage
+%\noindent
+%Things to know about piecewise-defined functions:
+%
+%\newpage
+%\noindent
+%A company is planning to order polo shirts pre-printed with their company logo from an online supplier. The cost to create the template for the logo is \$50. The cost per shirt is tiered, according to the number of shirts ordered. The cost per shirt is \$20 for up to 30 shirts. For orders of more than 30 shirts, the per shirt charge isn \$15.\\
+%
+%\noindent
+% Write a function to represent the total cost of order $x$ shirts. 
+% 
+% \vspace{3.5cm}
+% 
+% \noindent
+% Graph this function. 
+% 
+% \vspace{9.5cm}
+% 
+% \noindent
+% If your total budget is \$1000 how many shirts can be ordered? What if the total budget is \$550?\\
+% 
+%\newpage
+%\noindent
+%For 2017, a single person whose taxable income is between \$0 - \$9,325 is charged 10\% in tax. A single person whose taxable income is between \$9,326 - \$37,950 is charged 10\% of the first \$9,325, and 15\% of the amount over \$9,325. \\
+%
+%\noindent
+%Write a piecewise-linear function to represent the income tax for a single taxpayer as a function of taxable income, for taxable incomes up to \$37,950.\\
+%
+%\vspace{3.5cm}
+%
+%\noindent
+%Graph this function. 
+%\vspace{9.5cm}
+%
+%\noindent
+%If a person owes \$2,383.75 in federal income taxes, what is their taxable income?\\ 
+%
+%\newpage
+%For the function
+%\[ f(x) = \begin{cases} -x-1 & \text{if } x \leq 2\\ 2x+3 & \text{if } x > 2 \end{cases} \]
+%\begin{enumerate}[label=(\alph*)]
+%	\item Find $f(-3)$, $f(2)$, $f(5)$
+%	\item Graph the function
+%	\item Find the intercepts	
+%\end{enumerate}
+%
+%\vspace{5cm}
+%
+%Find a rule (equation) for the function graphed below:
+%\begin{center}
+%	\includegraphics[scale=0.35]{piecewise1}
+%\end{center}
+%
+%\newpage
+%\noindent
+%A company produces tables.  The fixed costs each month are \$15,000 and each table costs \$46 to manufacture.  The company sells each table for \$121.  How many tables must be sold for the company to break even?
+
+%%%%%%%%%%%%%%%%%%%%%% Day 9 Handouts %%%%%%%%%%%%%%%%%%%%%%
+
+%\noindent
+%A restaurant orders beef from a supplier. If they order up to 100 pounds, the restaurant pays \$4.00 per pound. If they order over 100 pounds, the restaurant pays \$3.50 per pound. 
+%
+%\vspace{1cm}
+%
+%\noindent
+%Determine a piecewise function that represents the cost of ordering $x$ pounds of beef.
+%
+%\vspace{9.5cm}
+%
+%\noindent
+%If the restaurant has a budget of \$700 to spend on beef, how many pounds of beef can they order?
+
+%%%%%%%%%%%%%%%%%%%%%% Day 10 Handouts %%%%%%%%%%%%%%%%%%%%%%
+
+%\noindent
+%Things to know about transformations:\\
+%
+%\noindent
+%Start with the function $y=f(x)$, what transformation is described by each of the following?\\
+%
+%\noindent
+%$y=f(x)+C$\\
+%
+%\hspace{0.5cm}  If $C$ is positive?\\
+%
+%\vspace{1cm} \hspace{0.5cm} If $C$ is negative?\\ \vspace{2cm}
+%
+%\noindent
+%$y=f(x+C)$\\
+%
+%\hspace{0.5cm}  If $C$ is positive?\\ 
+%
+%\vspace{1cm} \hspace{0.5cm} If $C$ is negative?\\ \vspace{2cm}
+%
+%\noindent
+%$y=-f(x)$ \vspace{2cm}
+%
+%\noindent
+%$y=f(-x)$ \vspace{1cm}
+%
+%\newpage
+%\noindent
+%$y=Cf(x)$\\
+%
+%\hspace{0.5cm}  If $C>1$?\\
+%
+%\vspace{1cm} \hspace{0.5cm} If $0<C<1$?\\ \vspace{2cm}
+%
+%\noindent
+%$y=f(Cx)$\\
+%
+%\hspace{0.5cm}  If $C>1$?\\
+%
+%\vspace{1cm} \hspace{0.5cm} If $0<C<1$?\\ \vspace{2cm}
+%
+%\newpage
+%
+%The following is the graph of $y=f(x)$:\\
+%\begin{center}
+%\includegraphics[scale=0.5]{transformations1}
+%\end{center}
+%
+%\noindent
+%Use the above graph to answer the following questions:
+%\begin{itemize}
+%	\item What is the domain and range of $f(x)$?
+%	\item Sketch the graph of $y=f(x)-2$ on the same set of axes. What are the domain and range of $f(x)-2$?
+%	\item Sketch the graph of $y=f(x+3)$ on the same set of axes. What are the domain and range of $f(x+3)$?
+%	\item Sketch the graph of $y=\frac{1}{2}f(x-1)$ on the same set of axes. What are the domain and range of $\frac{1}{2}f(x-1)$?
+%\end{itemize}
+%
+%\newpage
+%\noindent
+%The following is the graph of $y=g(x)$:\\
+%\begin{center}
+%\includegraphics[scale=0.5]{transformations2}
+%\end{center}
+%
+%\noindent
+%Use the above to answer the following questions
+%\begin{itemize}
+%	\item What is the domain and range of $g(x)$?
+%	\item Sketch the graph of $y=2g(x+3)-1$ on the same set of axes. What are the domain and range of $2g(x+3)-1$?
+%	\item Sketch the graph of $y=-g(\frac{1}{3}x)+3$ on the same set of axes. What are the domain and range of $-g(\frac{1}{3}x)+3$?
+%	\item Sketch the graph of $y=g(-x)-4$ on the same set of axes. What are the domain and range of $g(-x)-4$?
+%\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%% Day 11 Handouts %%%%%%%%%%%%%%%%%%%%%%
+
+%\noindent
+%For the following transformations identify the base function and describe the transformations in the appropriate order. Verify by graphing the equation.
+%
+%\begin{enumerate}
+%	\item $y=(x-1)^3+4$ \vspace{5cm}
+%	\item $y=-(x-2)^2+3$ \vspace{5cm}
+%	\item $y=\frac{1}{2}(x+3)^4-5$ \vspace{5cm}
+%	\item $y=3(\frac{1}{4}x)^2$ \vspace{5cm}
+%	\item $y=-2\sqrt{x-5}+5$ \vspace{5cm}
+%	\item $y=\sqrt{3x}-2$ \vspace{5cm}
+%\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%% Day 12 Handouts %%%%%%%%%%%%%%%%%%%%%%
+
+%Review Day No Handouts
+
+%%%%%%%%%%%%%%%%%%%%%% Day 13 Handouts %%%%%%%%%%%%%%%%%%%%%%
+
+%\noindent
+%Recall this example from earlier in the semester. A company produces a pair of skates for \$43.53 and sells each pair for \$89.95. The fixed costs incurred regardless of the number of skates produced are \$742.72. We wrote the revenue, $R(x)$, and cost, $C(x)$ functions. Complete the following tasks:
+%\begin{itemize}
+%	\item Find $R(x)$ and $C(x)$.
+%	\item Find the profit function $P(x)$.
+%	\item Graph these three functions on the same set of axes.
+%\end{itemize}
+%
+%\newpage
+%\noindent
+%\section*{Concept Check 8}
+%Consider the following function:
+%\[y=\frac{1}{2}(x+3)^4-5\]
+%
+%\noindent
+%List the base function and the transformations in the appropriate order.
+
+%%%%%%%%%%%%%%%%%%%%%% Day 14 Handouts %%%%%%%%%%%%%%%%%%%%%%
+
+%\noindent
+%\section*{Warm-Up}
+%Complete the following problems:
+%\begin{enumerate}
+%	\item Calculate the difference quotient $\frac{f(x+h)-f(x)}{h}$ for\\ $f(x)=3x^2+5$.
+%	\item Transform the following graph via $y=-f(x+2)$ \begin{center}
+% 			\includegraphics[scale=0.75]{GraphtoTransform}
+% 		\end{center}
+%
+%	\item Graph the following function: \[ g(x)= \begin{cases} -\frac{x}{2} & \text{if } x \neq 2\\ 1 & \text{if } x=2 \end{cases}\]
+%\end{enumerate}
+%
+%\newpage
+%\noindent
+%The local jazz society puts on a series of weekly concerts during the spring. When concert tickets are priced at \$15, the average attendance is 400 people. This past fall the society tried out different ticket prices and found that for every \$2 increase in ticket price, approximately 25 fewer people come to the show. \\
+%
+%\begin{itemize}
+%	\item Write an equation to represent the attendance, $A(x)$, as a function of ticket price $x$. \newpage
+%	\item Write a function that represents revenue generated by selling tickets as a function of the selling price $x$. \vspace{12.5cm}
+%	\item When (at what selling price) is revenue maximized?
+%\end{itemize}
+%
+%\newpage
+%\noindent
+%\subsection*{Things to know about combining functions}
+%\begin{itemize}
+%	\item $(f+g)(x)=$ \vspace{3cm}
+%	\item $(f-g)(x)=$ \vspace{3cm}
+%	\item $(f\cdot g)(x)=$ \vspace{3cm}
+%	\item $\frac{f(x)}{g(x)}=$ \vspace{3cm}
+%	\item $(f \circ g)(x)=$ \vspace{3cm}
+%	\item $(g \circ f)(x)=$ \vspace{3cm}
+%\end{itemize}
+%
+%\newpage
+%\noindent
+%The sales tax at a certain store is 9\%. 
+%\begin{itemize}
+%	\item Write a function for the total price paid, $P(x)$, for an item priced at $x$ dollars after factoring in sales tax. 
+%	\item The store is having a sale and offering \$5 off every purchase. Write an equation, $S(x)$ for an item originally priced at $x$ dollars.
+%	\item Find the composition $P(S(x))$.
+%\end{itemize}
+%
+%\newpage
+%\noindent
+%\begin{enumerate}
+%	\item Suppose $h(x)=\frac{3}{\sqrt{x-7}}$. What are two functions $f(x)$ and $g(x)$ such that $(f \circ g)(x)=h(x)$? \vspace{7.5cm}
+%	\item The following tables show the unemployment rate and crime rates in a certain city. Use these tables to answer some questions.
+%		\begin{center}
+%			\begin{tabular}{|l|l|}
+%\hline
+%$t$, time in years & $U$, unemployment rate \\ \hline
+%0                  & 0.02                   \\ \hline
+%1                  & 0.023                  \\ \hline
+%1                  & 0.03                   \\ \hline
+%3                  & 0.032                  \\ \hline
+%\end{tabular}
+%		\end{center} 
+%		
+%		\begin{center}
+%			\begin{tabular}{|l|l|}
+%\hline
+%$U$, unemployment rate & Crime rate \\ \hline
+%0.01                   & 0.015      \\ \hline
+%0.02                   & 0.021      \\ \hline
+%0.03                   & 0.028      \\ \hline
+%0.04                   & 0.031      \\ \hline
+%0.05                   & 0.037      \\ \hline
+%\end{tabular}
+%		\end{center}
+%		
+%\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%% Day 16 Handouts %%%%%%%%%%%%%%%%%%%%%%
+
+%\section*{Warm-Up}
+%
+%Use these functions to answer the following questions: 
+%		\[ f(x)=\frac{x}{x-1} \hspace{2cm} g(x)=\frac{4}{x+7}\]
+%
+%\begin{enumerate}[label=(\alph*)]
+%	\item Find $\frac{f}{g}$
+%	\item What is the domain of $\frac{f}{g}$?
+%\end{enumerate}		
+%
+%\newpage
+%\noindent
+%Suppose that the demand for a certain pair of sunglasses can be expresses as a function of the purchase price using the equation $q=f(p)= -4000p+200,000$. Use this equation to answer these questions:
+%\begin{enumerate}[label=(\alph*)]
+%	\item What is the demand when the price is \$40? \vspace{2.5cm}
+%	\item What is $f(0)$ and what does this mean in practical terms? \vspace{2.5cm}
+%	\item Graph this function in a reasonable window. \vspace{2.5cm}
+%	\item What are the domain and range of this function? \vspace{2.5cm}
+%	\item What price corresponds to a demand of 80,000 pairs of sunglasses? \vspace{2.5cm}
+%\end{enumerate}
+%
+%\newpage
+%\noindent
+%\section*{Things you need to know about inverse functions}
+%When does a function have an inverse function?\\ \vspace{7.5cm} %\textit{A function is invertible if it is one-to-one, every output variable has exactly one input variable. Graphically it must pass the horizontal line test}
+%
+%\noindent
+%How do you find an inverse function, for a function that has one?\\ \vspace{5cm} %\textit{Solve for the input variable as a function of the output variable}
+%
+%\noindent
+%Notation: \vspace{2.5cm} \\ %\textit{If $y=f(x)$, then the inverse is denoted $x=f^{-1}(y)$}
+%
+%\noindent
+%Domain/Range: \vspace{2.5cm} %\textit{The domain of $f^{-1}$ is the range of $f$. The range of $f^{-1}$ is the domain of $f$}
+%
+%\newpage
+%\noindent
+%Find the inverse function and evaluate $f^{-1}(57)$ for the following function: \[y=f(x)=7x^3+1\]
+%
+%\newpage
+%\noindent
+%Below is a verbal description of several functions. Determine whether the function described has an inverse function, and if it does, explain what the inverse function tells you.
+%\begin{itemize}
+%	\item $T=f(p)$ represents the city sales tax paid on an item that sells for $p$ dollars\vspace{5cm} %\textit{If you know an amount of tax, can you (uniquely) determine the price of the item?}
+%	\item $C=f(t)$ represents the average cost of a gallon of unleaded gasoline in Tucson $t$ days after January 1\vspace{5cm} %\textit{If you know an average price of gas, can you (uniquely) determine the price of the item?}
+%	\item The profit function $P(x)$, found from the revenue function $R(x)=x\left( \frac{100,000-x}{2000}\right)$ and the cost function $C(x)=1200+10x$, where $x$ is the number of units sold %\textit{Graph and use the horizontal line test}
+%\end{itemize}
+%
+%\newpage
+%\noindent
+%Suppose a cost-benefit model is given by $C=f(x)=\frac{6.6}{100-x}$ where $C$ is the cost, in thousands of dollars, of removing $x$ percent of a given pollutant. Find the inverse function, and explain what it represents.
+%
+%\newpage
+%\noindent
+%\section*{Concept Check}
+%The functions $u$ and $w$ are defined as follows: \[ u(x)=-x-2 \hspace{5cm} v(x)=2x^2+1\] \vspace{2.5cm} 
+%\begin{enumerate}
+%	\item Find $u(v(-2))$.
+%	\item Find $v(u(x))$.
+%	\item Find $(u+v)(1)$.
+%\end{enumerate}
+%
+%%%%%%%%%%%%%%%%%%%%%%% Day 17 Handouts %%%%%%%%%%%%%%%%%%%%%%
+%
+%\section*{Warm-Up}
+%\begin{enumerate}
+%	\item Suppose the functions $g$ and $h$ are defined as follows: \[ g(x)=\frac{8}{x}, x \neq 0 \\ h(x)=x^2-7\] Find the compositions $g \circ g$ and $h \circ h$. \vspace{2.5cm}
+%	\item \textcolor{white}{a}\\\includegraphics[scale=0.75]{Compositionwarmup}
+%\end{enumerate}
+%
+%%%%%%%%%%%%%%%%%%%%%%% Day 18 Handouts %%%%%%%%%%%%%%%%%%%%%%
+%
+%\section*{Warm-Up}
+%The volume $V(r)$ in cubic meters of a spherical balloon with a radius $r$ is given by the formula \[ V(r)=\frac{4}{3}\pi r^3\]
+%\noindent
+%The radius $W(t)$ in meters after $t$ seconds is given by \[W(t)=5t+3\]
+%\noindent
+%Write a formula, $M(t)$ for the volume of the balloon after $t$ seconds.
+%
+%
+%\newpage
+%\section*{Practice Problems}
+%Complete the following problems:
+%\begin{enumerate}
+%	\item For the following find the inverse of the function and evaluate $f^{-1}(2)$\\ \begin{center} \begin{tabular}{|l|l|l|l|l|}
+%\hline
+%$n$    & 3 & -4 & 1  & 2 \\ \hline
+%$f(n)$ & 2 & 6  & -1 & 0 \\ \hline
+%\end{tabular} \end{center} \vspace{1cm}
+%\item Find the inverse of $f(x)=\frac{6x+2}{4x-5}$ \vspace{1cm}
+%\item Let $f(x)$ be a one-to-one function. What point must be on the graph if $f(9)=11$?
+%
+%\end{enumerate}
+%
+%\newpage
+%\section*{Concept Check}
+%The average cost function of producing purple striped berets is given by the function $A=f(x)=3.5+\frac{2500}{x}$ where $x$ is the number of hats and $A$ is the average cost per hat when producing $x$ hats.\\ \vspace{1cm}
+%
+%\noindent
+%Give the input, output, domain and range for this function.\\ \vspace{1.5cm}
+%
+%\noindent
+%Find the inverse of this function.\\ \vspace{1.5cm}
+%
+%\noindent
+%Evaluate $f^{-1}(16)$, and describe what this tells you about this problem. 
+
+%%%%%%%%%%%%%%%%%%%%%% Day 19 Handouts %%%%%%%%%%%%%%%%%%%%%%
+
+%\newpage
+%
+%\noindent
+%A business has created a mathematical model based on market data for its profit, $P$ (in dollars), as function of the number of items sold, $x$. The model is given by the function \[ P(x)=-0.1x^2+150x-1400.\] How many units must be sold to maximize profit? What is the maximum profit?\\
+%
+%\newpage
+%
+%\subsection*{Things you need to know about Quadratic Functions}
+%
+%\noindent
+%\textbf{General form: $f(x)=ax^2+bx+c$}\\
+%\vspace{7.5cm}
+%
+%\noindent
+%\textbf{Vertex form: $f(x)=a(x-h)^2+k$}\\
+%\vspace{7.5cm}
+%
+%\noindent
+%\textbf{Factored form: $f(x)=a(x-r_1)(x-r_2)$}\\
+%
+%\newpage
+%\noindent
+%$f(x)=2x^2+5x+3$
+%
+%\noindent
+%Describe the following features of the quadratic function. 
+%\begin{itemize}
+%	\item The shape
+%	\item $y$-intercept
+%	\item Write it in vertex form
+%	\item Write it in factored form
+%\end{itemize}
+%
+%\newpage
+%
+%\noindent
+%Find a formula for the parabola that goes through the points $(-5,0)$, $(3,0)$ and $(4,12)$\\
+%
+%\newpage
+%\noindent
+%A concert venue holds a maximum of 1,000 people with ticket prices at \$30, the average attendance is 650 people. It is predicted that for every dollar the ticket price is lowered approximately 25 more people will attend. Create a function to represent the revenue generated from ticket sales and use this to find the maximum possible revenue.
+%
+%\newpage
+%\noindent
+%Suppose a sunglass manufacturer determines the demand function for a certain line of sunglasses is given by $p=50-\frac{1}{4000}x$, where $p$ is the price per pair, and $x$ is the number of pairs sold. The fixed cost of producing this line of sunglasses is \$25,000 and each pair of sunglasses costs \$3 to produce. How many pairs of sunglasses should be produced and sold in order to maximize profits?\\
+%
+%\newpage
+%\section*{Warm-Up}
+%\noindent
+%A tank is being filled with a liquid. The amount of liquid, $L$ in liters, after $t$ minutes is given by $L(t)=1.25t+73$. Answer the following questions:
+%\begin{itemize}
+%	\item Find $L^{-1}(x)$
+%	\item Find $L^{-1}(125)$
+%	\item Interpret what the inverse tells us.
+%\end{itemize}
+%
+%\newpage
+%\section*{Concept Check}
+%Consider the following function: 
+%\[ f(x)=\sqrt{4-x}+7 \]
+%
+%\noindent
+%The domain of the function is $(-\infty, 4]$ and the range is $(-\infty, \infty)$. 
+%
+%\begin{enumerate}
+%	\item Find $f^{-1}(x)$.
+%	\item What is the domain of $f^{-1}(x)$?
+%	\item What is the range of $f^{-1}(x)$?
+%\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%% Day 20 Handouts %%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{problem}
+%The braking distance $D(v)$ (in meters) of a certain car moving at a certain velocity $v$ is given by $D(v)=\frac{v^2}{22}$. The car's velocity $B(t)$ (in meters per second) $t$ seconds after starting is given by $9t$. How many meters will it take the car to stop if it has been driving for 30 seconds? 
+%\end{problem}
+%
+%\vspace{5cm}
+%
+%\begin{problem}
+%Scientists are studying the temperature on a distant planet. They find that the temperature $T$ depends on the height $h$ (in kilometers) above the planet's surface. The relationship is as follows: \[T(h)=48.5-2.5h.\] Use this to answer the following questions: 
+%\begin{enumerate}
+%	\item In practical terms describe $T^{-1}(h)$.
+%	\item Find $T^{-1}(h)$.
+%	\item What is $T^{-1}(33)$?
+%\end{enumerate}	
+%\end{problem}
+%
+%\vspace{5cm}
+%
+%\begin{problem}
+%A ball is thrown from an initial height of 2 meters with an initial upward velocity of 30 meters per second. The ball's height $h$ (in meters) is given by \[h(t)=2+30t-5t^2.\] Use this to answer the following:
+%\begin{enumerate}
+%	\item Find all values for which the ball is at 12 meters.
+%	\item When does the ball touch the ground?
+%	\item What is the maximum height the ball reaches and when does it reach that height?
+%\end{enumerate}
+%\end{problem}
+%
+%\vspace{5cm}
+%
+%\begin{problem}
+%	Write the equation for the quadratic function that contains the following points $(-1,0)$, $(3,0)$ and $(5,4)$.
+%\end{problem}
+%
+%\vspace{5cm}
+%
+%\begin{problem}
+%	Write the equation for the quadratic function that contains has a vertex at $(3,4)$ and passes through the point $(8,-4)$.
+%\end{problem}
+%
+%\vspace{5cm}
+%
+%\begin{problem}
+%	The length of a rectangle is 8 yards less than 3 times it's width. The area of the rectangle is 35 square yards. Find the dimensions of the rectangle.
+%\end{problem}
+%
+%\vspace{5cm}
+%
+%\begin{problem}
+%	Answer the following questions about the following quadratic equation \[x^2-6x+11\]
+%	\begin{enumerate}
+%		\item Is the vertex a maximum or minimum?
+%		\item Where does the vertex occur?
+%	\end{enumerate}
+%\end{problem}
+%
+%\vspace{5cm}
+%
+%\begin{problem}
+%Find the zeros of the following quadratic equation \[-3x^2+6x+1\]	
+%\end{problem}
+%
+%\vspace{5cm}
+%
+%\begin{problem}
+%When an apple orchard owner plants 65 trees on an acre of ground, he gets an average yield of 1500 apples per tree. For each additional tree planted per acre, the annual yield per tree drops by 20 apples. Let $x$ represent the number of additional trees above 65.
+%\begin{enumerate}
+%	\item Determine an equation that represents the yield of apples the orchard owner will get per year.
+%	\item How many trees should the owner plant in order to maximize the output of the orchard?
+%	\item What is the maximum amount of apples will the orchard produce?
+%\end{enumerate}
+%\end{problem}
+%
+%\vspace{5cm}
+%
+%\begin{problem}
+%	A charter flight charges a fee of \$300 per person plus \$2 per person for each unsold seat on the plane. The plane holds 200 passengers. 
+%	\begin{enumerate}
+%		\item Determine an equation that represents the revenue based on number of passengers $x$
+%		\item How many passengers should ride on the plane to maximize revenue?
+%		\item What is the maximum revenue the company can make?
+%	\end{enumerate}
+%\end{problem}
+
+
+
+
+%\newpage
+%%%%%%%%%%%%%%%%%%%%%% Day 21 Handouts %%%%%%%%%%%%%%%%%%%%%%
+
+%\subsection*{Things to know about Polynomial Functions}
+%General Form: \\
+%
+%\vspace{5cm}
+%\noindent
+%End Behavior:\\
+%
+%\vspace{7.5cm}
+%\noindent
+%All about Zeros:\\
+%
+%\vspace{5cm}
+%\noindent
+%All about direction changes:
+%
+%\newpage
+%\noindent
+%Determine the degree, leading coefficient, and zeros of the following polynomial equations. Sketch a rough graph by hand and check your answers on your graphing calculator. \begin{enumerate}
+%	\item $y=x^3-x^2-6x$
+%	\item $y=-\frac{1}{2}(x+3)(x-2)(x+1)(x-5)$
+%	\item $y=-x^4+13x^2-36$
+%	\end{enumerate}
+%
+%\newpage
+%\noindent
+%Determine a possible equation for the following graph. Verify your answer on your graphing calculator. \begin{center}
+%	 \includegraphics[]{cubicpractice.png}
+%	 \end{center}
+%	 
+%\newpage
+%\noindent	 
+%Determine a possible equation for the following graph. Verify your answer on your graphing calculator.
+%	 \begin{center}
+%	 \includegraphics[scale=0.5]{quarticpractice.png}
+%	\end{center} 
+%	
+%\newpage
+%\noindent
+%Based on actuarial life tables, the average number of years of life remaining for a female of age $x$ (up to 100) can be approximated by the function \[N(x)=0.0000004x^4-0.00004x^3+0.002x^2-1.0191x+81.955.\] Use this to answer the following questions: \begin{enumerate}
+%	\item Graph this function in an appropriate window.
+%	\item What does this graph tell us in practical terms?
+%	\item What is the $y$-intercept? What does it mean in practical terms?
+%	\item What is the degree of this function?
+%	\item What is the leading coefficient of this function?
+%	\item Is this function increasing or decreasing on the implied domain? What does this tell us in practical terms?
+%	\item Why does it make sense that life expectancy increases as the age of the female increases?
+%	\end{enumerate}	
+%
+%\newpage
+%\noindent
+%A $12 \times 8$ rectangular piece of cardboard is folded into an open top box. This is possible by cutting squares from each of the corners. \begin{enumerate}
+%	\item Determine a formula for the volume of the box.
+%	\item Find the maximum possible volume.
+%	\end{enumerate}		
+%	
+%\newpage
+%\noindent
+%For a particular pair of sunglasses, it is determined that the cost function is given by \[C(x)=0.00003x^3+7x+1,500\] and the revenue function is given by \[R(x)=-0.01x^2+40x\] where $x$ is the number of sunglasses produced and sold. Find a function to represent the profit as a function of $x$. Determine the number of units that should be sold in order to maximize profit. What is the maximum profit? 	
+%
+%\newpage
+%\noindent
+%\section*{Concept Check}
+%A ball is thrown upwards from an initial height of 3 feet with an initial velocity of 30 feet per second. The ball's height $h$ after $t$ second can be modeled by the equation. 
+%	\[ h=3+30t-16t^2\]
+%
+%\begin{enumerate}
+%	\item What height was the ball thrown from?
+%	\item At what time(s) was the ball at 11 feet?
+%\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%% Day 22 Handouts %%%%%%%%%%%%%%%%%%%%%%
+
+%Copy the following into your notes:
+%\begin{enumerate}
+%	\item The domain when combining two functions $f(x)$ and $g(x)$ in the following ways, $(f+g)(x)$, $(f-g)(x)$, $(fg)(x)$ is found by \underline{\hspace{5cm}}
+%	\item The domain of $\left(\frac{f}{g}\right)(x)$ is found by \underline{\hspace{5cm}}
+%	\item The domain of $(f\circ g)(x)$ is found by \underline{\hspace{5cm}}.
+%	\item To find the inverse of a function I do the following \underline{\hspace{5cm}}
+%	\item The domain of an inverse function is the \underline{\hspace{5cm}} of the original function $f(x)$.
+%	\item The range of an inverse function is the \underline{\hspace{5cm}} of the original function $f(x)$.
+%	\item The following are the three forms of a quadratic function and the ways to find the vertex: \begin{itemize}
+%		\item Standard Form: \underline{\hspace{5cm}} to find the\\ vertex: \underline{\hspace{5cm}}
+%		\item Vertex Form: \underline{\hspace{5cm}} to find the\\ vertex: \underline{\hspace{5cm}}
+%		\item Factored Form: \underline{\hspace{5cm}} to find the\\ vertex: \underline{\hspace{5cm}}
+%	\end{itemize}
+%	\item Three ways that you can find the zeros of a quadratic function are: \underline{\hspace{2.5cm}}, \underline{\hspace{2.5cm}}, \underline{\hspace{2.5cm}}.
+%	\item A polynomial function has the form \underline{\hspace{5cm}}. When working with polynomial functions, the best way to identify features of them is to \underline{\hspace{5cm}}.
+%\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%% Day 23 Handouts %%%%%%%%%%%%%%%%%%%%%%
+
+%\section*{Warm-up}
+%A clothes dryer is purchased for \$750, and electricity to run it costs approximately \$95 per year.\\
+
+%\noindent
+%Create a function that represents the average cost per year. \\[2.5cm]
+
+%\noindent
+%Graph this function in an appropriate window.
+
+%\newpage
+%\subsection*{Things to know about Rational Functions}
+%General form:\\[4cm]
+%Domain of a rational function: \\[4cm]
+%Zeros of a rational function: \\[4cm]
+%Vertical Asymptotes: \\[4cm]
+%Horizontal Asymptotes: \\[4cm]
+
+%\newpage
+%\noindent
+%Find the domain, zeros, vertical asymptote(s) and horizontal asymptote for:
+%\[f(x)=\frac{3x-2}{x-1}\]
+
+%%%%%%%%%%%%%%%%%%%%%% Day 24 Handouts %%%%%%%%%%%%%%%%%%%%%%
+%\section*{Warm-Up}
+%For the following function identify the domain and write equations for all the asymptotes. Verify your answer by graphing.
+%\[f(x)=\frac{2x+1}{x^2-16}\]
+%
+%\newpage
+%\noindent
+%Find an equation for the following rational equations.\\
+%\begin{center}
+%\includegraphics[scale=0.35]{graph2.png}\\[10mm]
+%\end{center}
+%
+%\begin{center}
+%\includegraphics[scale=0.35]{graph1.png}
+%\end{center}
+%
+%\newpage
+%\noindent
+%A company that assembles bicycles has determined that a new employee can assemble $M(d)$ bicycles per day after $d$ days of on-the-job training, where $M(d)=\frac{100d^2}{3d^2+10}$. After how many days of training would an employee be able to assemble 25 bicycles per day?
+
+%%%%%%%%%%%%%%%%%%%%%% Day 25 Handouts %%%%%%%%%%%%%%%%%%%%%%
+%\begin{enumerate}
+%	\item Determine an equation for the rational function that has:
+%		\begin{itemize}
+%			\item $f(x)$ has a zero at $x=2$
+%			\item $f(x)$ has a vertical asymptote at $x=-1$
+%			\item $f(x)$ has a horizontal asymptote at $y=3$
+%		\end{itemize} \newpage
+%	\item A patient is being treated for a chronic illness. The concentration $C(x)$ in $g$ per $mL$ of a certain medication in the patient's bloodstream $x$ weeks after taking the medication is approximated by $C(x)=\frac{8x^2-31x+35}{4x^2-16x+17}$. During what week is the largest concentration in the patient's bloodstream? How much is in their bloodstream during that week? As time passes how much medication will be in the patient's bloodstream? \newpage
+%	\item Answer the following questions about the rational function $f(x)=\frac{x^2+3x-18}{x^2-4}$. Identify the: 
+%		\begin{itemize}
+%			\item Domain
+%			\item Vertical Asymptote
+%			\item Horizontal Asymptote
+%			\item Zeros
+%			\item $y-$intercept
+%		\end{itemize} \newpage
+%	\item The cost $C$ in millions of dollars of removing $x\%$ of pollutant from a lake is given by $f(x)=\frac{50x}{100-x}$, where $0 \leq x \leq 100$. Use this information to answer these questions:
+%		\begin{itemize}
+%			\item Evaluate $f(60)$ and interpret what it means in context of the problem
+%			\item If a company has 25 million dollars to spend how much pollutant can they remove?
+%			\item What amount of money does a company need to have in order to remove 95\% of the pollution?
+%			\item A current law states that in order for a state to receive federal funding at least 10\% of the funding must be utilized clean water ways. If the government is funding 900 million to a certain state how much pollutant can they remove from the lake?
+%		\end{itemize} \newpage
+%	\item The number of random facts a person can learn depends on the number of minutes, $m$, they spend studying. This is represented by the following graph. Use the graph to find an equation that represents the number of facts a person can learn. 
+%		\begin{center}
+%			\includegraphics[scale=0.25]{rationalfunction3}
+%		\end{center} \newpage
+%\end{enumerate}
+%
+%
+%\subsection*{Problem Set 2}
+%\begin{enumerate}
+%\item A company that produces telephones has determined that the monthly fixed cost is \$12,000 and it costs \$30 to manufacture each telephone. Use this information to answer the following questions.
+%	\begin{itemize}
+%		\item Write a function that represents the average cost per telephone.
+%		\item Determine an appropriate domain for the function.
+%		\item As the number of telephones the company produces increases, what does the average cost become?\\[4mm]
+%	\end{itemize}
+%
+%\newpage	
+%	
+%\item A scientist is studying the temperature in a certain region of a remote planet. She approximates the temperature, $T$ in degrees Celsius in that region $x$ years after the planet's origin to be the following \[T=\frac{3x^2-13x+8}{x^2-4x+8}.\] In what year was the temperature the coolest? What was the coolest temperature? Does the temperature of the planet ever level off? If so, what does the temperature tend to?
+%\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%% Day 26 Handouts %%%%%%%%%%%%%%%%%%%%%%
+
+%\noindent
+%Let's talk about rabbits $\cdots$\\[4mm]
+%\begin{center}
+%\begin{tabular}{c|c}
+%Time & Number of Rabbits \\ \hline
+%0    & 2                 \\
+%1    & 6                 \\
+%2    & 18                \\
+%3    & 54                \\
+%4    & 162               \\
+%5    & 486              
+%\end{tabular}
+%\end{center}
+%
+%\newpage
+%\noindent
+%Nathan has \$100 to open a savings account. He found an account that offers 2.5\% interest compounded annually. Write a function to represent the balance in the account as a function of time in years, assuming the initial deposit and all subsequent interest is kept in the account. Graph this function in an appropriate window.\\
+%
+%\newpage
+%\noindent
+%What is the general form of on exponential function? \\[3cm]
+%What differentiates an exponential function from the other types of functions we have studied? \\[3cm]
+%What is the domain of an exponential function? The range? The intercept(s)? The asymptote(s)? \\[5cm]
+%What determines whether an exponential function is increasing or decreasing?\\[3cm]
+%What is the formula for compound interest if it is compounded annually? $n$ times per year? continuously? 
+%
+%\newpage
+%\noindent
+%Determine the for $y=C \cdot b^x$ that passes through the points $(1,12)$ and $(3,192)$.
+%
+%\newpage
+%\noindent
+%A person plans to invest \$5,000 into a money market account. Find the interest rate required for the money to grow to \$45,000 in 30 years if the interest is compounded quarterly.
+%
+%\newpage
+%\noindent
+%Bacteria from raw eggs has come into contact with the onions and celery you are going to put into your potato salad. Initially there were 500 bacteria present; one hour later there were 4,000 bacteria present in the salad. The population of the bacteria in the salad can be modeled by a exponential function $y=C \cdot b^t$, where $t$ is measured in hours. Create a function that represents this situation, and use the graph to determine the number of hours it takes for the bacteria's population to double in size.
+%
+%\newpage
+%\noindent
+%\$100 is invested into an account bearing 12\% interest. What will the balance in the account be in 10 years if $\ldots$\\[4mm]
+%interest is compounded annually?\\[5cm]
+%interest is compounded quarterly?\\[5cm]
+%interest is compounded monthly?\\[5cm]
+%interest is compounded daily?\\
+%
+%
+%\newpage
+%\noindent
+%A radioactive substance has a half-life of 20 days. If the initial amount is 25 grams, write a function to represent the amount of substance remaining after $t$ days.\\
+
+%%%%%%%%%%%%%%%%%%%%%% Exponential Practice Problems %%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{problem}
+%	A population of 800 beetles is growing each month at a rate of 8\%. Write a function that represents the number of beetles at time $x$. About how many beetles will there be in 2 years?
+%\end{problem}
+%
+%\begin{problem}
+%	The half-life of ibuprofen is given by the formula \[ R=M(0.5)^t \] where $t$ is the time in hours and the dosages are measured in milligrams. If a person took a 200 milligram dose 2 hours ago, how much is currently left in their blood stream? A person has 30 milligrams in their body 1 hour after taking the medication, how much was their original dosage? 
+%\end{problem}
+%
+%\begin{problem}
+%	You recently bought a new computer for \$1,500 and were astounded when you did research that people with the same model computer who bought it 2 years before can only sell their machines for \$800. Write an equation to represent depreciation of your computer. When will the computer be valued at \$200?
+%\end{problem}
+%
+%\begin{problem}
+%	The half-life of caffeine is 5 hours. A grande French roast has 330 milligrams of caffeine. Using this information write an equation to represent the amount of caffeine in your bloodstream after $t$ hours in the form $y=Pe^{rt}$. At what time will the caffeine in your body no longer be effective (for most adults this occurs when there are about 20 milligrams or less in your bloodstream)?
+%\end{problem}
+%
+%\begin{problem}
+%	A certain termite colony triples in size every 2 weeks. The pest control came to your house a month ago and counted that you had 500 termites in your house. Write a function that represents the number of termites in your house in terms of $t$ where $t$ represents the number of weeks since the initial inspection. Since that inspection it has been 6 weeks and they termite people have come back to spray termite spray. How many termites are they exterminators going to exterminate?
+%\end{problem}
+%
+%\newpage
+
+%%%%%%%%%%%%%%%%%%%%%% Logarithm Problems %%%%%%%%%%%%%%%%%%%%%%
+
+%\noindent
+%\$1 is invested in an account earning 5\% interest compounded annually. How long will it take the amount in the account to grow to \$2.
+%
+%
+% 
+%\noindent
+%\newpage
+%Consider $y=2^x$:
+% 
+%\newpage
+%\noindent
+% 
+% \subsection*{Things to know about logarithmic functions}
+% 
+% \begin{enumerate}
+% 	\item What is a logarithm? \\[2.5cm]
+% 	\item What is the notation for logarithm? What is the exponential equivalent of a logarithm? \\[5cm]
+% 	\item How do you evaluate simple logarithmic expressions? \\[2.5cm] 
+% 	\item What is the common logarithmic function? The natural logarithmic function? \\[2.5cm]
+% 	\item What is the domain/range/intercept/asymptote of a logarithmic function? 
+% \end{enumerate}
+%
+%\newpage
+%\noindent
+%Find the domain and intercepts of the logarithmic function, and sketch the graph $f(x)=\log(3x-2)$.\\
+% 
+%
+%\newpage
+%\noindent
+%The amount of radioactive material in a 200-gram sample of bismuth can be modeled by the function $A(t)=200e^{-0.1386t}$, where $t$ is time in days. What is the half-life of this radioactive material?\\
+%
+%\newpage
+%\noindent
+%A population of 1000 bacteria is on the kitchen counter. The amount of time, in hours, that it takes the population to reach $x$ bacteria is given by $f(x)=16 \cdot \ln\left( \frac{x}{1000}\right)$. How many bacteria will their be in 3 hours. \\
+%
+%\newpage
+%\subsection*{Concept Check}
+%The half-life of caffeine is 5 hours. Pepsi Zero Sugar has 115 milligrams of caffeine. Using this information write an equation to represent the amount of caffeine in your bloodstream $t$ hours after drinking Pepsi Zero Sugar. 
+
+%%%%%%%%%%%%%%%%%%%%%% Logarithm and Exponential Practice %%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{problem}
+%	A city's population has been growing exponentially over the past several years. In 2005, the population was 420,000 people and in 2016 the population was 630,000 people. 
+%	\begin{itemize}
+%		\item Write an equation that represents the population where $t$ is time in years since 2000.
+%		\item What was the population estimated to be in 2010?
+%		\item When will the population be 1,000,000 people?\\[9cm]
+%	\end{itemize}
+%\end{problem}
+%
+%\begin{problem}
+%	Tricia drinks coffee every morning before work. The brand of coffee Tricia purchases indicates that it has 190 milligrams per serving. One day Tricia had some lab work completed and they found that Tricia had 80 milligrams of caffeine in her body approximately 6 hours after she had finished her morning coffee. Find the half life of the caffeine in Tricia's body.
+%\end{problem}
+%
+%\newpage
+%
+%\begin{problem}
+%	An outbreak of E. Coli occurred during January of this year due to people eating romaine lettuce. Jorge purchased romaine lettuce in January from a contaminated source. When Jorge bought his lettuce there were 25 E. Coli bacteria present. At the time Jorge ingested his lettuce, 2 days after he purchased it, there were 60 E. Coli bacteria present. The amount of bacteria a human needs to have present in order to get sick with this specific type of bacteria is 100. Assuming Jorge's system doesn't fight off the infection and the bacteria keep growing at the same rate, when will Jorge get sick? \\[9cm]
+%\end{problem}
+%
+%\begin{problem}
+%	The sounds humans can hear is measured using decibels. The formula to find the number of decibels a sound is given by \[ d=10\log \left(\frac{P}{P_0}\right)\] where $P$ is the power of the intensity of the sound and $P_0$ is the weakest sound a human ear can hear.\\
+%	
+%	\noindent
+%	A hot water pump  has a noise rating of 50 decibels while a certain dishwasher has a noise rating of 62 decibels. How much more intense is the dishwasher noise than the hot water pump noise? (Hint: solve for the power of intensity of each and compare the two values)
+%\end{problem}
+%
+%\newpage
+%
+%\begin{problem}
+%	In 2010 the world had a population of 6.9 billion people. Last year the world population was recorded at 7.6 billion people. Use this information to answer the following questions.
+%	\begin{itemize}
+%		\item Write an equation that represents the world population.
+%		\item By the end of this year, what is the population expected to be?
+%		\item Ecologists estimate that the carrying capacity of the Earth is 10 billion people. During what year does our model estimate the carrying capacity to be reached? \\[9cm]
+%	\end{itemize}	
+%\end{problem}
+%
+%\begin{problem}
+%	In 1935 Charles Richter defined the magnitude of an earthquake to be \[M=\log \left( \frac{I}{S} \right) \] where $I$ is the intensity of the earthquake (measured by a seismograph) and $S$ is the standard intensity of an earthquake.\\
+%	
+%	\noindent
+%	On January 12, 2010 had an earthquake of magnitude 7.0. Yesterday morning at 6 a.m. a 3.0 magnitude earthquake occurred in Fontana, California 439 miles from Tucson. How many times strong was the earthquake in Haiti than the earthquake in California yesterday?
+%\end{problem}
+%
+%\newpage
+%
+%\begin{problem}
+%	Carbon-14 is a radioactive isotope that is used to help date the ages of bones that are found in archeological digs. It has a half-life of 5370 years. Use this information to answer the following questions:
+%	\begin{itemize}
+%		\item Create an equation to represent the amount of Carbon-14 left in a bone after $t$ years.
+%		\item How long would it take for a bone to have 60\% of the original Carbon-14 left in it?
+%		\item A recent found fossil is estimated to have been around ~39,000 years ago. How much Carbon-14 should the scientists expect it to contain? \\[9cm]
+%	\end{itemize}
+%\end{problem}
+%
+%\begin{problem}
+%	Consider the following logarithmic function with base $b>1$ \[y=\log_b(Ax+B)+C\] where $A, B$, and $C$ are positive constants.
+%	\begin{itemize}
+%		\item Determine the exact values of all intercepts and asymptotes.
+%		\item Sketch an accurate graph of $y=\log_b(Ax+B)+C$.
+%	\end{itemize}
+%\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%% Properties of Logarithms %%%%%%%%%%%%%%%%%%%%%%
+
+%\subsection*{Things to know about the Properties of Logarithms}
+%What is the property for a logarithm of an input that is multiplied? \\[6cm]
+%What is the property for a logarithm of an input that is divided? \\[6cm]
+%What is the property for a logarithm of a power? \\[6cm]
+%What is the inverse property of logs/exponential functions?
+%
+%\newpage
+%\noindent
+%Use the properties of logs to rewrite the following as a single logarithmic expression:\\
+%
+%\noindent
+%$\ln(6x)+\frac{1}{2}\ln(x)-\ln(2x)$\\[7.5cm]
+%
+%\noindent
+%$\log(5z)-\log(x)-3\log(3y)+\log(t)$\\[7.5cm]
+%
+%\noindent
+%$2\log_2(x^2)+\log_2(y)-4\log_2(P)-\frac{1}{3}\log_2(Q)+\log_2(z)$\\
+%
+%
+%\newpage
+%\noindent
+%Use the properties of logarithms to expand each expression as much as possible:\\
+%
+%\noindent
+%$\ln(10xe^3x)$\\[7.5cm]
+%
+%\noindent
+%$\log\left(\frac{2x^4}{y\sqrt{z}} \right)$\\[7.5cm]
+%
+%\noindent
+%$\log_5(\sqrt{5z})$\\
+%
+%\newpage
+%\noindent
+%Use the natural logarithm and a property of logarithms to solve: $4(3)^x=20$.\\
+%
+%\newpage
+%\noindent
+%Use property of logarithms to solve:\\
+%
+%\noindent
+%$\log(-x-2)+\log(1-x)=1$\\[7.5cm]
+%
+%\noindent
+%$\log_3(3x+17)-\log_3(x+1)=2$
+
+%%%%%%%%%%%%%%% Applications of Exponentials and Logarithms %%%%%%%%%%%%%%%%%%%%
+
+%\begin{problem}
+%	A cup of coffee that is initially $125^\circ$F is placed in a room kept at a constant $72^\circ$F. The temperature of the coffee, $T$ as a function of time is given by $T(x)=72+53(0.8)^x$, where $x$ is measured in minutes. How long will it take the coffee to cool to $100^\circ$F?
+%\end{problem}
+%
+%\newpage
+%
+%\begin{problem}
+%	A radioactive isotope of bismuth has a half-life of $5$ days. After how many days will 20\% of the isotope remain?
+%\end{problem}
+%
+%\newpage
+%
+%\begin{problem}
+%	The world population has been growing roughly exponentially for the past 30 years. In 1987, the world population was approximately 5 billion. In 1998, the world population was approximately 6 billion. Find an exponential equation of the form $y=Ce^{kt}$ which models the population with $t$ representing the number of years 1987. Use at least 6 decimal places for the value of $k$. What does the model predict the population was in 2000?
+%\end{problem}
+%
+%\newpage
+%
+%\begin{problem}
+%	Suppose Matt wants to have \$10,000 saved in 9 years. How much should he invest today at 3.4\% compounded continuously in order to reach his goal?
+%\end{problem}
+%
+%\newpage
+%
+%\begin{problem}
+%	A radioactive isotope of bismuth has a half-life of 5 days. After how many days will a 200-gram sample decay to 20 grams of radioactive material?
+%\end{problem}
+%
+%\newpage
+%
+%\begin{problem}
+%	The doubling time for an investment is given by the equation $T=\frac{\ln(2)}{\ln(1+r)}$ where $r$ is the interest rate in decimal form. At what interest rate would you need to invest in order to double your investment in 10 years?
+%\end{problem}
+%
+%\newpage
+%
+%\begin{problem}
+%	Suppose after 2500 years an initial amount of 1000 grams of radioactive substance has decayed to 75 grams. What is the half-life of the substance?
+%\end{problem}
+%
+%\newpage
+%
+%\begin{problem}
+%	The concentration of a pollutant in the atmosphere increases according to the exponential growth model $A=Pe^{rt}$, where time is measured in years and $r=0.0035$. In 1990, the concentration was 56 parts per million. Clean-up procedures will be initiated when the concentration reaches 70 parts per million. According to the model, in what year will that occur?
+%\end{problem}
+%
+%\newpage
+%
+%\begin{problem}
+%	Air pressure, $P$, decreases exponentially with the height above the surface of the earth. At the top of Mount Everest, height 8848 meters, the air pressure is about 34.6\% of the air pressure at sea level. Approximate the air pressure as a percentage of the sea level value at the top of Mount Kilimanjaro, height 5895 meters.
+%\end{problem}
+%
+%\newpage
+%
+%\begin{problem}
+%	What is the doubling time for a population of rabbits that grows from 120 to 500 in 12 months?
+%\end{problem}
+
+\begin{problem}
+	A pork roast is removed from the freezer ($25^\circ$F) and placed in a room ($75^\circ$F). The number of minutes it takes the temperature of the roast to reach $x$ degrees F is given by the formula $T=f(x)=\frac{100}{3}\ln\left(\frac{50}{75-x}\right)$. Find and interpret $f^{-1}(70)$.
+\end{problem}
+
+\begin{problem}
+	New employees are given an initial exam and then retested monthly with an equivalent exam. The average scores for the employees can be expressed as $S(t)=76-6\cdot \log_{3}(t+1)$ where $t$ is measured in months since the initial exam. After approximately how many months would the average score be 54?
+\end{problem}
+
+\begin{problem}
+	The temperature of a cup of hot tea, in $^\circ$F, is represented by the function $H(t)=72+102e^{-0.023t}$, where $t$ represents time in minutes since the cup of tea was placed on the kitchen counter. Use the function to determine how long it will take for the cup of tea to cool to $120^\circ$F. 
+\end{problem}
+
+\begin{problem}
+	A population of ladybugs grows according to the limited growth model $A=400-400e^{-0.04t}$ where $t$ is measured in weeks, $t \geq 1$. After how many weeks will the population be approximately 300 ladybugs?
+\end{problem}
+
+\begin{problem}
+	A colony of bacteria grows from 300 to 1300 in 7 hours. Assume the population can be modeled by $A=pe^{rt}$, where $t$ is measured in hours. Determine the tripling time of the bacteria?
+\end{problem}
+
+\begin{problem}
+	A population of lemmings declined rom 100,000 to 75,000 in 3 months. Assuming an exponential pattern of decline, approximately how many will be remaining after another 3 months pass?
+\end{problem}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

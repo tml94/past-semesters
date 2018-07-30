@@ -1,0 +1,313 @@
+\documentclass{beamer}
+
+\usepackage{amsmath, epsfig, subfigure, psfrag, amssymb, amsfonts, array, amsthm}
+\usepackage{enumerate}
+\usepackage{tikz}
+	\usetikzlibrary{calc, shapes.geometric, positioning, shapes, decorations, arrows, patterns}
+\usepackage{wasysym}
+ \usetikzlibrary{decorations.markings}
+
+\mode<presentation>
+
+\usetheme{Pittsburgh}
+\usecolortheme{beaver}
+%\useoutertheme{split}
+
+\setbeamertemplate{footline}{}%[split, frame number]
+\setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{itemize items}[circle]
+
+\setbeamersize{text margin left=6mm}
+\setbeamersize{text margin right=6mm}
+\setbeamersize{sidebar width right=0mm}
+\setbeamersize{sidebar width left=0mm}
+\setbeamertemplate{navigation symbols}{}
+
+\newtheorem{comments}{Comments}
+\newtheorem{question}{Question}
+\newtheorem{goal}{Goal}
+\newtheorem{remark}{Remark}
+\newtheorem{proposition}{Proposition}
+\newtheorem{conjecture}{Conjecture}
+
+% \newcommand*\oldmacro{}
+% \let\oldmacro\insertshorttitle
+% \renewcommand*\insertshorttitle{
+% \oldmacro\hfill
+% \insertframenumber\,/\,\inserttotalframenumber}
+
+\def\tsimkappa{\sim_{\kappa}}
+\def\r{\vec{r}}
+\newcommand{\w}{\overline{w}}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\FC}{FC}
+\newcommand{\C}{\widetilde{C}}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\supp}{supp}
+\newcommand{\LD}{\mathcal{L}}
+\newcommand{\RD}{\mathcal{R}}
+
+
+%% ----------------------------------------------------------------------  
+
+\begin{document}
+
+\def\newblock{\hskip .11em plus .33em minus .07em}
+
+\title[Math 112 Final Review]
+{\textbf{Math 112 Final Review}}
+\author[T.M.~Laird]{Taryn Laird}
+\institute[UA]{University of Arizona\\
+Department of Mathematics}
+
+\vspace{1em}
+
+\date[UofA]{\textbf{Math 112}\\
+May 2, 2018}
+
+\frame{\titlepage}
+
+%% ----------------------------------------------------------------------
+
+
+
+%\begin{frame}{\textbf{Question 1}}
+%	Solve the equation.
+%\[ 2(x+3)-5=3x+10\]
+%%	\pause
+%%	
+%%	Answer: $-9$
+%\end{frame}
+%
+%\begin{frame}{\textbf{Question 2}}
+%	Solve the equation.
+%\[\frac{2}{x-5} + \frac{3}{x} = \frac{5}{x^2-5x}\]
+%	
+%%	\pause
+%%	
+%%	Answer:$x=-2$
+%\end{frame}
+%
+%\begin{frame}{\textbf{Question 3}}
+%	Determine the values of $x$ and $y$ that solve the following system of equations.
+%\begin{center}
+%\begin{align*}
+%	3x+6y &=22\\
+%	-x+2y &= 10\\
+%\end{align*}
+%\end{center}
+%
+%	\bigskip
+%	
+%%	\pause
+%%	
+%%	Answer: Between 13 and 17
+%\end{frame}
+
+\begin{frame}{\textbf{Question 1}}
+	A couple invests \$4,000 into an apiary. On average each pint of honey the apiary produces costs \$2.76 to produces and sells for \$10.20 per pint. How many pints of honey does the couple need to sell in order to break even?
+	\bigskip
+	
+%	\pause
+%	
+%	Answer: Between 2.5 and 3 mph
+\end{frame}
+
+%\begin{frame}{\textbf{Question 5}}
+%	A shop owner wants to mix high quality tea leaves that cost \$4.95 per pound with lower quality tea leaves that cost \$2.55 per pound to obtain 30 pounds of tea blend that costs \$3.10 per pound. How much of each type of tea should he add to his blend?
+%	\bigskip
+%	
+%%	\pause
+%%	
+%%	Answer: 21 hours
+%\end{frame}
+
+%\begin{frame}{\textbf{Question 6}}
+%	Calculate the discriminant and state how many solutions the following quadratic equation has.
+%\[ 3x^2-5x+1\]
+%
+%	
+%	\bigskip
+%	
+%%	\pause
+%%	
+%%	Answer: $-1+\sqrt{10}$
+%\end{frame}
+
+\begin{frame}{\textbf{Question 2}}
+	Solve for $x$.
+\[(x-1)(x+10)=16\]
+	
+	\bigskip
+	
+%	\pause
+%	
+%	Answer: 75 mph
+\end{frame}
+
+\begin{frame}{\textbf{Question 3}}
+	 Consider the quadratic function $f(x)= 3x^2-13-10$. What is the vertex of $f(x)$?
+	
+	\bigskip
+	
+%	\pause
+%	
+%	Answer: $y=\frac{2}{3}x+1$
+\end{frame}
+
+\begin{frame}{\textbf{Question 4}}
+	A toy rocket is launched vertically in the air from a 7-foot launching platform with an initial velocity of 40 meters per second. If the equation modeling the height of the rocket is given by $h(t)=-4.9t^2+v_0t+h_0$ where $v_0$ is the initial velocity, and $h_0$ is the initial height, what is the maximum height reached by the rocket?
+
+	
+%	\pause
+%	
+%	Answer: 5.
+\end{frame}
+
+%\begin{frame}{\textbf{Question 10}}
+%	Farmer Ed has $8,000$ meters of fencing, and wants to enclose a rectangular field, that borders a river on one side. If Farmer Ed, doesn't enclose the side of the field that borders the river, what are the dimensions of the field that maximizes the area?
+%	
+%	\bigskip
+%	
+%%	\pause
+%%	
+%%	Answer: $\frac{f(h+4)-f(4)}{h}=3h+19$.
+%\end{frame}
+
+%\begin{frame}{\textbf{Question 11}}
+%	Find the domain of the equation $f(x)=\sqrt{2-5x}$\\
+%	
+%	\bigskip
+%	
+%%	\pause
+%%	
+%%	Answer: $\left(-\infty, \frac{2}{5}\right]$
+%\end{frame}
+
+%\begin{frame}{\textbf{Question 12}}
+%	Determine which of the following represent $y$ as a function of $x$. Explain why the equation is or is not a function:
+%	\begin{itemize}
+%		\item $x^2+y^2-4 =0$
+%		\item $x^2+y^3=-27$
+%		\item $xy-y^4+4=8$
+%	\end{itemize}	
+%%	\pause
+%%	
+%%	Answer: Less than \$20,000.
+%\end{frame}
+
+%\begin{frame}{\textbf{Question 13}}
+%	Write an equation that has a domain of all real numbers except $x=-3$ and $x=5$.	
+%\end{frame}
+%
+%\begin{frame}{\textbf{Question 14}}
+%	Determine an equation for the polynomial that has zeros at $x=0, -1, 1, \sqrt{3}, -\sqrt{3}$ and passes through the point $(4,10)$.\\
+%	
+%	\bigskip
+%	
+%%	\pause
+%%	
+%%	Answer: $x=0, x=1$
+%\end{frame}
+
+\begin{frame}{\textbf{Question 5}}
+	Consider the polynomial function $f(x)=3(x-5)^2(x^2+2)^3(x+3)^4$. What is the end behavior of the graph?
+	
+	\bigskip
+	
+%	\pause
+%	
+%	Answer: $f(-1)=-2$ and $f(2)=5$
+\end{frame}
+
+\begin{frame}{\textbf{Question 6}}
+	Consider the rational function: \[f(x)=\frac{x^2-4}{(x^2-x-6)}\]	 What is the domain of $f(x)$? 
+	 \bigskip
+%	 \pause
+%	 
+%	 Answer: $(0, 3)$, $(\frac{-3}{2}, 0)$
+\end{frame}
+
+%\begin{frame}{\textbf{Question 17}}
+%	Consider the rational function: \[f(x)=\frac{x^2-4}{(x^2-x-6)}\]. What are the removable discontinuities of $f(x)$?
+%	\bigskip
+%	
+%%	Answer: $(-4, -5)$
+%\end{frame}
+
+\begin{frame}{\textbf{Question 7}}
+	Consider the rational function: \[f(x)=\frac{x^2-4}{(x^2-x-6)}\] What is the horizontal asymptote of $f(x)$?
+	\bigskip	
+%	\pause
+%	
+%	Answer: $(h \circ f)(x)=\sqrt{x^2-9}$
+\end{frame}
+
+\begin{frame}{\textbf{Question 8}}
+	Consider the rational function: \[f(x)=\frac{x-4}{(x^2+x-6)}\] What are the intercepts of $f(x)$?
+	
+	\bigskip
+	
+%	\pause
+%	
+%	Answer: $f^{-1}(x)=\frac{-3x-1}{2x-1}$
+\end{frame}
+
+\begin{frame}{\textbf{Question 9}}
+	Find a formula for the parabola whose vertex is at $(-2,-1)$ and passes through the point $(0,13)$.\\
+	\bigskip
+	
+%	\pause
+%	Answer: $y=3(x+2)^2-1$
+\end{frame}
+
+%\begin{frame}{\textbf{Question 20}}
+%	Find a formula for the parabola whose vertex is at $(-2,-1)$ and passes through the point $(0,13)$.\\
+%	\bigskip
+%	
+%%	\pause
+%%	Answer: $y=3(x+2)^2-1$
+%\end{frame}
+
+\begin{frame}{\textbf{Question 10}}
+	Consider the following exponential function: \[f(x)=3 \cdot \left(\frac{5}{3}\right)^{-2}+3\]. List the transformations of the base graph of $f(x)$.
+	\bigskip
+	
+%	\pause
+%	Answer: $y=3(x+2)^2-1$
+\end{frame}
+
+\begin{frame}{\textbf{Question 11}}
+	Consider the following exponential function: \[f(x)=3 \cdot \left(\frac{5}{3}\right)^{-x}+3\]. What is the asymptote of $f(x)$?
+	\bigskip
+	
+%	\pause
+%	Answer: $y=3(x+2)^x-1$
+\end{frame}
+
+\begin{frame}{\textbf{Question 12}}
+	Solve for $x$: \[\frac{e^{x+5}}{x^{3x}}=e^{x-1}\]
+	\bigskip
+	
+%	\pause
+%	Answer: $y=3(x+2)^2-1$
+\end{frame}
+
+\begin{frame}{\textbf{Question 13}}
+	Consider the equation: \[f(x)=\log_3(x+11)\] (1) What is the domain of $f(x)$?
+	\bigskip
+	
+%	\pause
+%	Answer: $y=3(x+2)^2-1$
+\end{frame}
+
+\begin{frame}{\textbf{Question 14}}
+	Suppose 128 ounces of a radioactive substance exponentially decays to 28 ounces in 6 hours. What is the half-life of the substance?
+	\bigskip
+	
+%	\pause
+%	Answer: $y=3(x+2)^2-1$
+\end{frame}
+
+
+\end{document}

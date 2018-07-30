@@ -1,0 +1,540 @@
+\documentclass[11pt]{article}
+
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{calc}
+
+
+
+\reversemarginpar
+
+\usepackage{geometry}
+\geometry{
+  top=1.2in,            % <-- you want to adjust this
+  inner=0.8in,
+  outer=0.8in,
+  bottom=0.5in,
+  headheight=1in,       % <-- and this
+  headsep=2ex,          % <-- and this
+}
+\usepackage{fancyhdr}
+\fancyheadoffset[L]{\marginparsep}
+\fancyfootoffset[L]{\marginparsep+\marginparwidth}
+
+\usepackage{amsmath}
+\usepackage{todonotes}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{color}
+\definecolor{darkblue}{rgb}{0, 0, .6}
+\definecolor{grey}{rgb}{.7, .7, .7}
+\usepackage[breaklinks]{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=darkblue,
+	anchorcolor=darkblue,
+	citecolor=darkblue,
+	pagecolor=darkblue,
+	urlcolor=darkblue,
+	pdftitle={},
+	pdfauthor={}
+}
+
+\setlength{\parindent}{0pt}
+
+\usepackage{sectsty}							% Custom sectioning (see below)
+
+\sectionfont{%									% Change font of \section command
+	\usefont{phv}{b}{n}%					% bch-b-n: CharterBT-Bold font
+	\sectionrule{0pt}{0pt}{-5pt}{3pt}
+	}
+
+
+\usepackage{multicol}
+\newcommand{\cancel}[1]{}
+\newcommand{\indt}{$\text{}\quad\bullet\text{ }$}
+\newcommand{\raw}{\rightarrow}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+
+
+%%%%%%Header/Footer%%%%%%%
+
+\pagestyle{fancy}
+
+\renewcommand{\headrulewidth}{.3in}
+\lhead{{\LARGE{\textbf{{Math 107: Exploring and Understanding Data}}}}\\Spring 2018 \hspace{10mm} Section 001}
+\chead{}
+\rhead{}
+
+\lfoot{} 
+\cfoot{\thepage} 
+\rfoot{}
+\renewcommand{\headrulewidth}{2pt} 
+\renewcommand{\footrulewidth}{0pt}
+
+%%%%%%%%%%%%%%%%%%%
+
+\usepackage{titlesec} % Used to customize the \section command
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}%[\titlerule] % Text formatting of sections
+\titlespacing{\section}{0pt}{3pt}{3pt} % Spacing around sections
+
+\begin{document}
+\pagenumbering{gobble}
+\hangindent=-2in
+\hangafter=1
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Instructor:}} 
+\vspace{-.65cm}
+\hangindent=5cm \hangafter=0
+Taryn Laird\\
+tarynl@math.arizona.edu\\
+Office: Math 323 \\
+%Office Phone: \\
+Office Hours: Tuesday 10-11:30 Office
+
+\hangindent=1.8cm \hangafter=0
+\hspace{14em} Wednesday 2-3pm Think Tank
+
+\hangindent=1.8cm \hangafter=0
+\hspace{14em} Thursday 1:00-2:30pm Office
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Assistant:}}
+\vspace{-.6cm}
+\hangindent=5cm \hangafter=0
+Ryan Wu\\
+ruiyangwu@math.arizona.edu\\
+Office: Math 707\\
+Office Hours:
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Website (D2L):}}
+\vspace{-.65cm}
+\hangindent=5cm \hangafter=0
+\href{https://d2l.arizona.edu/d2l/home/659470}{https://d2l.arizona.edu/d2l/home/659470}
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Class Time:}}
+\vspace{-.65cm}
+\hangindent=5cm \hangafter=0
+Tuesday and Thursday 8:00am to 9:15am in Integrated Learning Center (ILC) 141
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Course\\ Description:}}
+\vspace{-1.3cm}
+\hangindent=5cm \hangafter=0
+The main purpose of this course is to help students understand, interpret, and represent data in a useful way to prepare students for courses in statistics.  The course will provide students with the knowledge of basic mathematical and software tools and concepts which they can utilize to interpret quantitative information they encounter in their daily life. With the knowledge they gain, students will be able to better understand and assess the validity of quantitative information they receive through the web, newspaper, television, etc.  Course topics will include creating various data summaries and descriptive statistics, probability, normal distributions, linear and other regression models, applying techniques to real world data sets.  Examinations are proctored.  \textbf{Prerequisite:} Proctored/Prep for Calculus 30+ or Proctored/Prep for College Algebra 40+.
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Grading Policy:}}
+\vspace{-.65cm}
+\hangindent=5cm \hangafter=0
+You can earn up to 1000 points in this course. Grades will be determined by the number of course points you accrue and will be set as follows:
+
+\begin{center}
+\begin{tabular}{lrr||}
+      & points & \% \\[2mm]
+final (1 x 250 pts) & 250 & 25\% \\
+tests (3 x 100 pts) & 300 & 30\% \\
+quizzes (4 x 25 pts) & 100 & 10\% \\
+MyMathLab hw (scaled) & 170 & 17\% \\
+Excel hw (6 x 25 pts) & 150 & 15\% \\
+Clicker score (scaled) & 30 & 3\%
+\end{tabular}
+\end{center}
+
+\newpage
+\hangindent=5cm \hangafter=0
+The cutoffs for grades will be as follows:
+\begin{center}
+\begin{tabular}{rll}
+  & points & percent \\[2mm]
+~~A & 900 - 1000 & 90 - 100\% \\
+B & 800 - 899 & 80 - 90\% \\
+C & 700 - 799 & 70 - 80\% \\
+D & 600 - 699 & 60 - 70\% \\
+E & ~~~0   - 599 & ~~0  - 60\% 
+\end{tabular}
+\end{center}
+%\end{multicols}
+\hangindent=5cm \hangafter=0
+%In addition, you must get at least 125 out of 250 points on the final exam in order to receive a C or better in the course.
+Neither test scores nor final grades will be curved.  
+No extra credit or bonus points are offered in this course.\\
+
+\hangindent=5cm \hangafter=0
+A student may withdraw from the course with a deletion from record through January 24, 2018, using UAccess. A student may withdraw with a grade of ``W" through March 27, 2018, using UAccess. It is suggested that students consult his/her academic advisor before withdrawal from any course.
+Requests for incomplete (I) or withdrawal (W) must be made in accordance with University policies, which are available at \\
+\href{http://catalog.arizona.edu/policy/grades-and-grading-system#incomplete}{http://catalog.arizona.edu/policy/grades-and-grading-system\#incomplete} and\\
+\href{http://catalog.arizona.edu/policy/grades-and-grading-system#Withdrawal}{http://catalog.arizona.edu/policy/grades-and-grading-system\#Withdrawal}, respectively.
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Final Exam:}}
+\vspace{-.65cm}
+\hangindent=5cm \hangafter=0
+The final exam is worth 250 points.  It will be held Thursday May 10, 2018 from 8:00am-10:00am in our usual classroom. 
+Final Exam Regulations are posted at \\[1mm]
+\href{https://www.registrar.arizona.edu/courses/final-examination-regulations-and-information}{https://www.registrar.arizona.edu/courses/final-examination-regulations-and-information}\\[1mm]
+and the Final Exam Schedule is posted at\\[1mm]
+ \href{http://www.registrar.arizona.edu/schedules/finals.htm}{http://www.registrar.arizona.edu/schedules/finals.htm}
+
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Tests:}}
+\vspace{-.65cm}
+\hangindent=5cm \hangafter=0
+Three 75 minute in-class tests will be given, each worth 100 points.\\
+Test dates: Feb 15, Mar 20, Apr 19.
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Quizzes:}}
+\vspace{-.65cm}
+\hangindent=5cm \hangafter=0
+Five 20 minute in-class quizzes will be given, each worth 25 points.\\
+Quiz dates: Jan 25, Feb 8, Feb 27, Apr 4, Apr 26.\\
+Your lowest quiz score will be dropped.
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{MyMathLab:}}
+\vspace{-.65cm}
+\hangindent=5cm \hangafter=0
+There will be about 24 MyMathLab assignments.
+Due dates are indicated in the course calendar, typically 11:30pm on Tuesdays, Thursdays, and Sundays.
+Each MyMathLab question (or each part, for multi-part questions) will be worth at least 1 MML-point.
+Questions requiring significant work to determine the answer will be worth more than 1 MML-point.
+The point value will be indicated with the problem.
+
+\hangindent=5cm \hangafter=0
+At the end of the semester, your MyMathLab homework grade will be computed as follows:  Take the number of MML-points you have earned and multiply by 189.  Divide the result by the total number of \textit{possible} MML-points.  This is the number of course points earned toward your grade, up to a maximum of 170 course points.
+Note that by this rule, if you earn at least 90\% of all possible MML-points, you will earn all 170 course points for MyMathLab.  (Check for yourself!)
+
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Excel Projects:}}
+\vspace{-.65cm}
+\hangindent=5cm \hangafter=0
+There will be 7 Excel homework assignments, each worth 25 points.
+Due dates are indicated in the course calendar, spaced about 1-2 weeks apart.
+Your lowest Excel homework grade will be dropped.\\
+
+\hangindent=5cm \hangafter=0
+These homework assignments will be distributed electronically.
+You will type out your answers in a Microsoft Word document, save it as a pdf file, and submit only the pdf file though a service called Gradescope.
+Your instructor and TA will grade your submission online and you will receive your grade and comments via Gradescope.\\
+
+\hangindent=5cm \hangafter=0
+It is very important to \textbf{\textit{start the Excel assignments early}} so that you have time to get help if you get stuck or confused.
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Clickers:}}
+\vspace{-.65cm}
+\hangindent=5cm \hangafter=0
+Clickers will be used in class on a daily basis to facilitate in-class discussion and to track your attendance in class.
+In addition, clickers help me determine if the class is ready to move on to the next concept or needs more time to review.
+
+\hangindent=5cm \hangafter=0
+Most class days, we will use clickers at multiple points throughout the class and your responses will be recorded.
+If you respond to at least 85\% of the clicker questions on a given day, you will receive 1 Clicker-point.
+At the end of the semester, your Clicker score will be computed as follows:  Take the number of Cliker-points you have earned and multiply by 32.  Divide the result by the total number of \textit{possible} Clicker-points.  This is the number of course points earned toward your grade, up to a maximum of 30 course points.
+By this rule, if you were to miss only one regular class meeting during the semester, you would still earn all 30 course points for Clickers.
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Required\\ Materials:}}
+\vspace{-1.3cm}
+\hangindent=5cm \hangafter=0
+\underline{MyMathLab}: 
+Our course is set up so that you may \textbf{only} register for MyMathLab by following a link appearing on the D2L site for the course.
+Your MyMathLab access will include online access to the textbook for the course (Lehmann, ``A Pathway to Introductory Statistics'').
+
+\hangindent=5cm \hangafter=0
+If you have previously used MyMathLab or other MyLabs product, you should use your previous login credentials.
+If you have not used a MyLabs product before, you should use your University of Arizona email address to ensure accurate grade recording.
+To pay for the online access, you will need a credit card, PayPal account, or an access code available from the UA bookstore.
+MyMathLab access codes purchased from outside sources (e.g.\ Amazon) may not provide the required access, thus it is \textit{strongly} recommended that you purchase the codes as just described.
+%The course textbook and several graded components for Math 112 are found in MyMathLab.  MyMathLab can be accessed through the course D2L website.  Students will need to purchase access to MyMathLab.  This can be done by one of the following two methods:
+%Students may only register for MyMathLab by enrolling through http://d2l.arizona.edu.  When registering for MyMathLab, students will need to enter a valid email address and password.  
+
+\hangindent=5cm \hangafter=0
+\underline{Laptop}: Quizzes will be administered in class via MyMathLab, on your laptop.
+In addition, we will sometimes use laptops in class for looking at data sets, or using Excel.
+Thus, I recommended that you bring a laptop to every class.
+If this presents a challenge for you, please email or speak to me as soon as possible.
+
+\hangindent=5cm \hangafter=0
+\underline{Graphing calculator}: A Texas Instruments (TI) graphing calculator such as a TI-83, TI-84 or TI-86 is required for this course.  Calculators that perform symbolic manipulations (such as the TI-89 or TI-92 or certain TI-Nspire CAS) cannot be used.
+You should bring your calculator with you to every class.
+If you would like to use a different kind of graphing calculator, please speak with me as soon as possible.\\[2mm]
+Calculator features on your cell phone are \textbf{\underline{not}} allowed as a substitute for graphing calculators in class, on quizzes, or on tests!\\
+
+\hangindent=5cm \hangafter=0
+\underline{Clicker:}
+A Turning Point Cloud clicker of the following kind is required: NXT, QT, QT2.  
+Mobile access will \textbf{\underline{not}} be enabled for this course.
+Follow one of these scenarios for purchase:\\
+(1) Buy a Clicker bundle (device, 5-year subscription and use of mobile app) at the UA bookstore (allows the use of financial aid). Cost is around \$75.\\
+(2)Buy a Clicker bundle (device, 5-year subscription and use of mobile app) at Turning Technologies online store (less expensive, requires credit card and is mailed to you). Cost is \$59.\\
+(3) Buy/Borrow a clicker from a friend or purchase on Amazon/eBay, but you still need to buy a Subscription License from Turning Technologies Online Store. Subscription license for one semester costs \$17.99, one year costs \$24.99, and on up for more years. \\
+\hangindent=5cm \hangafter=0
+To register your clicker, go to the course D2L site, click on UA Tools and choose Clickers.  Then follow steps for creating a Turning Technologies account.  You will need to enter your subscription license code, your clicker device ID, and connect to the Brightspace LMS. 
+Detailed video instructions are posted here:\\
+\text{}\qquad\href{http://help.d2l.arizona.edu/student/turning-techclickers-overview}{http://help.d2l.arizona.edu/student/turning-techclickers-overview}\\
+Additional tips and FAQs about clickers are posted here:\\
+\text{}\qquad\href{http://help.d2l.arizona.edu/student/tips-and-faqs}{http://help.d2l.arizona.edu/student/tips-and-faqs}\\
+
+\hangindent=5cm \hangafter=0
+\underline{Microsoft Word and Microsoft Excel}: This software is free for UA students!\\
+\text{}\qquad\href{http://uabookstore.arizona.edu/technology/campuslicensing/default.asp}{http://uabookstore.arizona.edu/technology/campuslicensing/default.asp}\\
+I recommend that you download this software to your laptop rather than use the online versions so that you can always have access to your documents.
+If you are unfamiliar with the basics of Microsoft Word, please email or speak to me as soon as possible.
+
+
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Attendance:}}
+\vspace{-.65cm}
+\hangindent=5cm \hangafter=0
+I expect you to attend every class.
+Please communicate with me in advance if you know you will have to miss a class, especially an exam.
+If you are not finding class time valuable for any reason, please let me know -- I would rather hear your feedback than wonder why you are not in attendance.
+Excessive or extended absence from class is sufficient reason for me to administratively drop you from the course.
+In particular, if you miss the first two class meetings or have 3 or more absences in the first month of the course, you may be administratively dropped.
+I will monitor attendance in part via your responses recorded by your clicker.\\
+
+\hangindent=5cm \hangafter=0
+The UA's policy concerning Class Attendance, Participation, and Administrative Drops: \href{http://catalog.arizona.edu/policy/class-attendance-participation-and-administrative-drop}{http://catalog.arizona.edu/policy/class-attendance-participation-and-administrative-drop}.
+The UA policy regarding absences for any sincerely held religious belief, observance or practice will be accommodated where reasonable, \\\href{http://policy.arizona.edu/human-resources/religious-accommodation-policy}{http://policy.arizona.edu/human-resources/religious- accommodation-policy}.
+Absences pre-approved by the UA Dean of Students (or Dean Designee) will be honored.  \href{https://deanofstudents.arizona.edu/absences}{https://deanofstudents.arizona.edu/absences}
+
+
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Late Homework:}}
+\vspace{-.65cm}
+\hangindent=5cm \hangafter=0
+Class policy is that no extensions will be given on homework deadlines.
+If you are concerned that you will not be able to complete a homework assignment on time, you must \textbf{\textit{notify me}} (not the TA) as soon as possible.
+Technical difficulties (unsure how to use software, internet outage, etc) are \textbf{not} an excuse for missing a deadline, so start early and submit early!
+
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Missed Quizzes:}}
+\vspace{-.65cm}
+\hangindent=5cm \hangafter=0
+If you miss an in-class quiz, you will receive a score of 0 on that quiz.  As stated above, your lowest quiz score will be dropped.
+
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Missed Tests:}}
+\vspace{-.65cm}
+\hangindent=5cm \hangafter=0
+Students who are unable to attend a test for a \textbf{\textit{legitimate}} reason must notify me at least \textbf{two weeks} prior to the test date.  Only legitimate reasons will be considered for make-up tests.  Legitimate reasons include an excuse letter from a Dean, religious holidays recognized by the University, and verifiable emergencies.  Prior personal commitments such as pre-arranged travel plans or meetings of an an activity group are not considered legitimate reasons.  \textit{Any request for a make-up exam made than two weeks prior to the test will be denied, unless it is a verifiable emergency.}\\
+
+\hangindent=5cm \hangafter=0
+If a verifiable emergency arises that prevents you from taking an test at the regularly scheduled time, you must \textbf{\textit{notify me}} within 24 hours after the test had been administered, otherwise a score of 0 will be recorded.\\
+
+\hangindent=5cm \hangafter=0
+Make-up tests will be administered only at the discretion of the instructor. If a student is allowed to make up a missed test, (s)he must take it at a mutually agreed upon time.  No further opportunities will be extended.  Failure to contact the instructor as stated above or inability to produce sufficient evidence of a real emergency will result in a grade of 0 on the test.
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Drop-In\\ Tutoring:}}
+\vspace{-1.3cm}
+\hangindent=5cm \hangafter=0
+Undergraduate Teaching Assistants familiar with our course will be available to help you with MyMathLab and Excel homework assignments on a drop-in basis in ILC 140 (Pascal's) on Fridays 10am-2pm, starting January 12.
+No appointment necessary!
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{GradeScope:}}
+\vspace{-.65cm}
+\hangindent=5cm \hangafter=0
+Your tests and the Excel homework assignments will be graded with the assistance of an online service called Gradescope.
+%During the first week of class, you will receive an email inviting you to sign up for an account through Gradescope.
+%You must complete the enrollment process before \red{\textbf{put date here; or will it be automatic from D2L?}}.
+There is no fee for the service.
+%\red{Some more information about Gradescope}
+%Any feedback, positive or negative, about PandaGrader is appreciated!
+More information about how to sign up for Gradescope will be provided during the second week of class.
+
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Cell Phones:}}
+\vspace{-.65cm}
+\hangindent=5cm \hangafter=0
+Class time is an important and wonderful sanctuary from our super-connected lives.
+Smart phones are a serious distraction from the learning environment of class and I will not allow their use during class at any time.
+Before class, turn off your phone and put it out of sight in your bag, and collect the index card with your full name on it from the folder at your table. Any student seen using their phone during class will have their card taken away for that day. At the end of the semester if you have kept your index card for all but 3 days (not including test days), the Clicker score will be bumped up by one point which is the equivalent of missing one day of class.
+If you have a truly essential emergency, please step outside of the classroom so as not to disturb your classmates.\\
+
+\hangindent=5cm \hangafter=0
+Repeat offenders to this policy will be asked to leave class or referred to the Dean of Students' office.
+Thank you for your cooperation in making class time free of cell phones!
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Student Code of\\ Conduct:}}
+\vspace{-1.3cm}
+\hangindent=5cm \hangafter=0
+Students at The University of Arizona are expected to conform to the standards of conduct established in the Student Code of Conduct.  
+Some essential aspects of the Student Code as they pertain to our class are discussed below.
+Students found to be in violation of the Student Code of Conduct are subject to disciplinary action.  For more information about the Student Code of Conduct, including a complete list of prohibited conduct, see\\ \href{http://deanofstudents.arizona.edu/accountability/students/student-accountability}{http://deanofstudents.arizona.edu/accountability/students/student-accountability}\\
+
+\hangindent=5cm \hangafter=0
+\underline{Academic Integrity}
+
+\hangindent=5cm \hangafter=0
+Students are encouraged to share intellectual views and discuss freely the principles and applications of course materials. 
+However, graded work/exercises must be the product of independent effort unless otherwise instructed. 
+Students are expected to adhere to the UA Code of Academic Integrity as described in the UA General Catalog. See:\\  
+\href{http://deanofstudents.arizona.edu/academic-integrity/students/academic-integrity}{http://deanofstudents.arizona.edu/academic-integrity/students/academic-integrity}\\
+
+\hangindent=5cm \hangafter=0
+Selling class notes and/or other course materials to other students or to a third party for resale is not permitted without the instructor's express written consent. Violations to this and other course rules are subject to the Code of Academic Integrity and may result in course sanctions.\\ 
+
+\hangindent=5cm \hangafter=0
+If you are found using multiple clickers, your clicker(s) will be taken and all involved parties will be ineligible to receive Clicker points for the rest of the semester.
+Further, such behavior is in violation of the University's Code of Academic Integrity and the infraction would be handled according to University policy. \\
+
+\hangindent=5cm \hangafter=0
+If you feel that you are not on track to receive the grade you deserve, please contact me in person or by email before it becomes a larger issue.\\
+
+\hangindent=5cm \hangafter=0
+\underline{Interference with class activities}
+
+\hangindent=5cm \hangafter=0
+Interfering with University activities, including classroom activities, is prohibited by the Student Code of Conduct.  
+Please read the above section regarding cell phones and adhere to our classroom policy on this issue!\\
+
+\hangindent=5cm \hangafter=0
+\underline{Threatening Behavior}
+
+\hangindent=5cm \hangafter=0
+The UA Threatening Behavior by Students Policy prohibits endangering, threatening, or causing physical harm to any member of the University community or to oneself or causing reasonable apprehension of such harm. \\
+See \href{http://policy.arizona.edu/education-and-student-affairs/threatening-behavior-students}{http://policy.arizona.edu/education-and-student-affairs/threatening-behavior-students}\\
+
+\hangindent=5cm \hangafter=0
+\underline{Harassment and Discrimination}
+
+\hangindent=5cm \hangafter=0
+The University is committed to creating and maintaining an environment free of discrimination.  Engaging in harassment or unlawful discriminatory activities on the basis of age, ethnicity, gender, handicapping condition, national origin, race, religion, sexual orientation, or veteran status, or violating University rules governing harassment or discrimination is against the Student Code of Conduct.  See\\ \href{http://policy.arizona.edu/human-resources/nondiscrimination-and-anti-harassment-policy}{http://policy.arizona.edu/human-resources/nondiscrimination-and-anti-harassment-policy}
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Early Progress\\ Grades:}}
+\vspace{-1.3cm}
+\hangindent=5cm \hangafter=0
+This course will report Early Progress Grades in UAccess between Feb 22--Mar 5.  The Early Progress Grade will be based on your Exam 1 grade and your grades on the first two Excel HW assignments. This is an opportunity to assess your current performance and make adjustments as needed to earn the grade that you want this semester. 
+
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Accomodation:}}
+\vspace{-.65cm}
+\hangindent=5cm \hangafter=0
+Our goal in this classroom is that learning experiences be as accessible as possible. 
+If you anticipate or experience physical or academic barriers based on disability, please let me know immediately so that we can discuss options. 
+You are also welcome to contact the Disability Resource Center (520-621-3268) to establish reasonable accommodations. 
+For additional information on the Disability Resource Center and reasonable accommodations, please visit \href{http://drc.arizona.edu}{http://drc.arizona.edu}.\\
+
+\hangindent=5cm \hangafter=0
+If you have reasonable accommodations, please plan to meet with me by appointment or during office hours to discuss accommodations and how my course requirements and activities may impact your ability to fully participate.
+Please be aware that the accessible table and chairs in this room should remain available for students who find that standard classroom seating is not usable.
+
+
+\vspace{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textbf{Syllabus Change:}}
+\vspace{-.65cm}
+\hangindent=5cm \hangafter=0
+Information contained in the course syllabus, other than the grade and absence policy, may be subject to change with advance notice, as deemed appropriate by the instructor.
+Any such changes will be announced in class and posted on the class website.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
