@@ -1,0 +1,579 @@
+\documentclass{beamer}
+\setbeamertemplate{navigation symbols}{}
+\setbeamersize{text margin left=0cm, text margin right=0cm}
+\usepackage{tcolorbox}
+    \tcbuselibrary{skins}
+\usepackage{ocgx}
+\usepackage{enumitem}
+
+
+\newtcolorbox{InnerSubjectBox}{
+    enhanced,
+    nobeforeafter,
+    arc=0pt,
+    width=.2\paperwidth,
+    boxrule=.4pt,
+    colframe=white,
+    center upper,
+    interior style={
+        top color=blue,
+        bottom color=black
+    },
+    colupper=white,
+}
+
+\newcommand{\subjects}[5]{×
+    \begin{InnerSubjectBox}
+        #1
+    \end{InnerSubjectBox}%
+    \begin{InnerSubjectBox}
+        #2
+    \end{InnerSubjectBox}%
+    \begin{InnerSubjectBox}
+        #3
+    \end{InnerSubjectBox}%
+    \begin{InnerSubjectBox}
+        #4
+    \end{InnerSubjectBox}%
+    \begin{InnerSubjectBox}
+        #5
+    \end{InnerSubjectBox}
+}
+
+\newtcolorbox{InnerPrizeBox}{
+    enhanced,
+    nobeforeafter,
+    arc=0pt,
+    width=.2\paperwidth,
+    boxrule=.4pt,
+    colframe=white,
+    center upper,
+    interior style={
+        top color=blue,
+        bottom color=black
+    },
+    colupper=white,
+    valign=center,
+    fontupper=\LARGE\bfseries,
+    height=.176\paperheight
+}
+
+\newcommand{\prizes}{%
+    \foreach \i in {1,2,...,5}{%
+        \begin{InnerPrizeBox}%
+            \begin{ocg}{s\i-100}{s\i-100}{1}{\hyperlink{s\i-100}{100}}\end{ocg}
+        \end{InnerPrizeBox}%
+        }%
+
+    \foreach \i in {1,2,...,5}{%
+        \begin{InnerPrizeBox}%
+            \begin{ocg}{s\i-200}{s\i-200}{1}{\hyperlink{s\i-200}{200}}\end{ocg}
+        \end{InnerPrizeBox}%
+        }%
+
+    \foreach \i in {1,2,...,5}{%
+        \begin{InnerPrizeBox}%
+            \begin{ocg}{s\i-300}{s\i-300}{1}{\hyperlink{s\i-300}{300}}\end{ocg}
+        \end{InnerPrizeBox}%
+        }%
+
+    \foreach \i in {1,2,...,5}{%
+        \begin{InnerPrizeBox}%
+            \begin{ocg}{s\i-400}{s\i-400}{1}{\hyperlink{s\i-400}{400}}\end{ocg}
+        \end{InnerPrizeBox}%
+        }%
+
+    \foreach \i in {1,2,...,5}{%
+        \begin{InnerPrizeBox}%
+            \begin{ocg}{s\i-500}{s\i-500}{1}{\hyperlink{s\i-500}{500}}\end{ocg}
+        \end{InnerPrizeBox}%
+        }%
+    }
+
+\newtcolorbox{QuestionHeadFoot}[1][]{
+    enhanced,
+    before=\vskip-.7ex,
+    after=,
+    arc=0pt,
+    width=\paperwidth,
+    boxrule=.4pt,
+    colframe=white,
+    center upper,
+    center lower,
+    interior style={
+        top color=blue,
+        bottom color=black
+    },
+    colupper=white,
+    collower=white,
+    valign=center,
+    fontupper=\LARGE\bfseries,
+    fontlower=\LARGE\bfseries,
+    height=.176\paperheight,
+    sidebyside,
+    segmentation style={white,solid,line width=.4pt},
+    #1
+}
+
+\newcommand{\header}[2]{
+    \begin{QuestionHeadFoot}
+         #1 \tcblower #2
+    \end{QuestionHeadFoot}
+}
+
+\newcommand{\footer}[1]{
+    \begin{QuestionHeadFoot}[before=\vskip-2.7ex]
+        \hyperlink{question#1}{Question} \\ \hyperlink{answer#1}{Answer} \tcblower
+        \hideocg{#1}{Done!} \\ \hyperlink{home}{Home}
+    \end{QuestionHeadFoot}
+}
+
+\newcommand{\content}[4]{
+\begin{frame}
+    \hypertarget<1>{answer#1}{}
+    \hypertarget<2>{question#1}{}
+    \hypertarget{#1}{}
+    \header{#2}{#3}
+  #4
+    \footer{#1}
+\end{frame}
+}
+
+\newtcolorbox{textarea}[1][]{
+    nobeforeafter,
+    height=6.2cm,
+    boxrule=0pt,
+    center upper,
+    valign=center,
+    #1
+}
+
+\begin{document}
+\begin{frame}
+\hypertarget{home}{}
+\vspace*{-.5cm}
+    \subjects{Combining}{Inverses\\}{Quadratic}{Polynomial}{Grab Bag}
+    \prizes
+\end{frame}
+
+\content                       % 4 arguments
+    {s1-100}                     % question internal identifier
+    {Combining}                          % subject number
+    {100}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Let $f(x)=x^2-2$ and $g(x)=x+5$. Find $(f+g)(x)$.
+        }
+        \only<2>{                  % answer content
+            $(f+g)(x)=x^2+x+3$
+        }
+        \end{textarea}
+    }
+\content                       % 4 arguments
+    {s1-200}                     % question internal identifier
+    {Combining}                          % subject
+    {200}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Let $f(x)=\frac{1}{\sqrt{2x-5}}$ and $g(x)=x^2+3$. Find $(g \circ f)(x)$.
+        }
+        \only<2>{                  % answer content
+            $(g\circ f)(x)=\frac{6x+16}{2x+5}$
+        }
+        \end{textarea}
+    }  
+    
+\content                       % 4 arguments
+    {s1-300}                     % question internal identifier
+    {Combining}                          % subject
+    {300}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            The volume $V(r)$ in cubic meters of a spherical ballon with radius $r$ meters is given by $V(r)=\frac{4}{3}\pi r^3$. The radius $W(t)$ after $t$ seconds is given by $W(t)=4t+2$. Write a formula for the volume of the balloon, $M(t)$, after $t$, seconds.
+        }
+        \only<2>{                  % answer content
+            $\frac{4}{3}\pi (4t+3)^3$
+        }
+        \end{textarea}
+    }   
+
+\content                       % 4 arguments
+    {s1-400}                     % question internal identifier
+    {Combining}                          % subject
+    {400}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Suppose $H(x)=\sqrt[3]{3x+6}$ and $H(x)=(f \circ g)(x)$. If $f(x)=\sqrt[3]{3x}$, what is $g(x)$?
+        }
+        \only<2>{                  % answer content
+            $g(x)=x+2$
+        }
+        \end{textarea}
+    }  
+    
+\content                       % 4 arguments
+    {s1-500}                     % question internal identifier
+    {Combining}                          % subject number
+    {500}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Let $f(x)=2x+5$ and $g(x)=\sqrt{x+3}$. What is the domain of $\left(\frac{g}{f}\right)(x)$?
+        }
+        \only<2>{                  % answer content
+            $[-3,-\frac{5}{2}) \cup (-\frac{5}{2},\infty)$
+        }
+        \end{textarea}
+    }   
+
+\content                       % 4 arguments
+    {s2-100}                     % question internal identifier
+    {Inverses}                          % subject number
+    {100}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Let $f(x)=\sqrt{3-x}+8$. What is $f^{-1}(x)$?
+        }
+        \only<2>{                  % answer content
+            $f^{-1}(x)=-(x-8)^2+3$
+        }
+        \end{textarea}
+    }    
+    
+\content                       % 4 arguments
+    {s2-200}                     % question internal identifier
+    {Inverses}                          % subject number
+    {200}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Let $f(x)=\frac{x-8}{x-7}$. Find $f^{-1}(x)$.
+        }
+        \only<2>{                  % answer content
+            $f^{-1}(x)=\frac{7x-8}{x-1}$
+        }
+        \end{textarea}
+    }
+   
+\content                       % 4 arguments
+    {s2-300}                     % question internal identifier
+    {Inverses}                          % subject number
+    {300}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Trey decided to go for a run. His distance, $D$, in kilometers from Newbury Heights after $t$ hours of running is given by $D(t)=13.5-5t$. In practical terms, what does $D^{-1}(10)=0.7$ represent?
+        }
+        \only<2>{                  % answer content
+            When Trey is 10 kilometers from home he has been running for 0.7 hours (42 minutes).
+        }
+        \end{textarea}
+    } 
+    
+\content                       % 4 arguments
+    {s2-400}                     % question internal identifier
+    {Inverses}                          % subject number
+    {400}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Let $f(x)=\sqrt{2x-10}$. Find the domain and range of $f^{-1}(x)$.
+        }
+        \only<2>{                  % answer content
+            Domain: $[0,\infty)$\\
+            Range: $[5,\infty)$
+        }
+        \end{textarea}
+    }  
+    
+\content                       % 4 arguments
+    {s2-500}                     % question internal identifier
+    {Inverses}                          % subject number
+    {500}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Let $f(x)=\frac{-x-4}{x+12}$. Find the domain and range of $f^{-1}(x)$.
+        }
+        \only<2>{                  % answer content
+            Domain: $(-\infty,-1) \cup (-1, \infty)$\\
+            Range: $(-\infty, -12) \cup (-12, \infty)$
+        }
+        \end{textarea}
+    }   
+    
+\content                       % 4 arguments
+    {s3-100}                     % question internal identifier
+    {Quadratics}                          % subject number
+    {100}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Find the vertex of $f(x)=x^2-12x+30$.
+        }
+        \only<2>{                  % answer content
+            $(6,-6)$
+        }
+        \end{textarea}
+    } 
+                            
+\content                       % 4 arguments
+    {s3-200}                     % question internal identifier
+    {Quadratics}                          % subject number
+    {200}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Find the zeros of $2x^2+8x-42$.
+        }
+        \only<2>{                  % answer content
+            $(-7,0)$ and $(3,0)$
+        }
+        \end{textarea}
+    }
+
+\content                       % 4 arguments
+    {s3-300}                     % question internal identifier
+    {Quadratics}                          % subject number
+    {300}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Write an equation for a quadratic function that passes through the points $(-2,0)$, $(-5,0)$ and $(-3,5)$.
+        }
+        \only<2>{                  % answer content
+            $f(x)=-\frac{5}{2}(x+2)(x+5)$
+        }
+        \end{textarea}
+    }    
+
+\content                       % 4 arguments
+    {s3-400}                     % question internal identifier
+    {Quadratics}                          % subject number
+    {400}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            A ball is thrown into the air and its height can be modeled by the function $h=3+13t-5t^2$\\ When is the ball above 10 feet?
+        }
+        \only<2>{                  % answer content
+            $(0.761, 1.839)$
+        }
+        \end{textarea}
+    }    
+
+\content                       % 4 arguments
+    {s3-500}                     % question internal identifier
+    {Quadratics}                          % subject number
+    {500}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            The manager of an 80-unit apartment complex is trying to decide what rent to charge each month. At a rent of \$800, all 80 units are full. On average, one additional unit will become vacant for each \$25 increase in rent.\\ Write an equation that represents the revenue with respect to $x$ where $x$ is the price charged for rent.
+        }
+        \only<2>{                  % answer content
+            $R(x)=(-\frac{1}{25}x+112)(x)$
+        }
+        \end{textarea}
+    }
+    
+\content                       % 4 arguments
+    {s4-100}                     % question internal identifier
+    {Polynomials}                          % subject number
+    {100}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            What is the degree of $f(x)=-x+7x^5-15x^2-7x^4$?
+        }
+        \only<2>{                  % answer content
+            $5$
+        }
+        \end{textarea}
+    } 
+    
+\content                       % 4 arguments
+    {s4-200}                     % question internal identifier
+    {Polynomials}                          % subject number
+    {200}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Describe the end behavior of $f(x)=-x+7x^6-15x^2-7x^4$.
+        }
+        \only<2>{                  % answer content
+            $f(x) \rightarrow +\infty$ as $x \rightarrow -\infty$\\
+            $f(x) \rightarrow +\infty$ as $x \rightarrow + \infty$
+        }
+        \end{textarea}
+    }
+    
+\content                       % 4 arguments
+    {s4-300}                     % question internal identifier
+    {Polynomials}                          % subject number
+    {300}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Find all the intercepts of $f(x)=\frac{1}{30}(x^4+4x^3-27x^2-70x+200)$ .
+        }
+        \only<2>{                  % answer content
+            $y$-intercept $(0,6.667)$\\
+            $x$-intercepts $(-5,0)$ $(2,0)$ $(4,0)$
+        }
+        \end{textarea}
+    } 
+    
+\content                       % 4 arguments
+    {s4-400}                     % question internal identifier
+    {Polynomials}                          % subject number
+    {400}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            According to their website, American Airlines limits the size of checked baggage in such a way that the length+width+height of the bag can be no more than 45 inches. Suppose a piece of luggage has length and width equal to $x$ inches. Find the maximum volume for such a piece of luggage.
+        }
+        \only<2>{                  % answer content
+            $1,687.5$ cubic inches
+        }
+        \end{textarea}
+    }
+    
+\content                       % 4 arguments
+    {s4-500}                     % question internal identifier
+    {Polynomials}                          % subject number
+    {500}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            The function $f(x)=0.37x^3-2.52x^2+17.83x-10.21$ approximates the number of followers a person has after the first 20 days of creating their Twitter account. Assume the value of $x$ represents the start of the 20th day.\\ During the middle of which day would a person have 100 followers?
+        }
+        \only<2>{                  % answer content
+            During the middle of the 26th day.
+        }
+        \end{textarea}
+    } 
+
+\content                       % 4 arguments
+    {s5-100}                     % question internal identifier
+    {Grab Bag}                          % subject number
+    {100}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            A concert venue has determined when tickets are priced at \$50, a total of 600 tickets will be sold. For every \$1 increase in price, 10 fewer tickets will be sold. Let $x$ represent the number of times the price is increased. Determine a formula for the price, $p$, quantity, $q$, and revenue, $R$, all in terms of $x$.\\
+            \begin{enumerate}[label=\rm{(\alph*)}]
+            	\item $p(x)=50+10x$, $q(x)=600-x$, $R(x)=(50+10x)(600-x)$
+            	\item $p(x)=50-10x$, $q(x)=600+x$, $R(x)=(50-10x)(600+x)$
+            	\item $p(x)=50+x$, $q(x)=600+10x$, $R(x)=(50+x)(600+10x)$
+            	\item $p(x)=50x$, $q(x)=6000x$, $R(x)=(50x)(6000x)$
+            	\item $p(x)=50+x$, $q(x)=600-10x$, $R(x)=(50+x)(600-10x)$
+            \end{enumerate}
+        }
+        \only<2>{                  % answer content
+            $(e)$ $p(x)=50+x$, $q(x)=600-10x$, $R(x)=(50+x)(600-10x)$ 
+        }
+        \end{textarea}
+    }
+    
+\content                       % 4 arguments
+    {s5-200}                     % question internal identifier
+    {Grab Bag}                          % subject number
+    {200}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Suppose the function $C=f(x)$ represents the cost, in dollars, for a company to manufacture $x$ thousand batteries. Which of the following statements is the correct interpretation of $f^{-1}(400)=600$?
+            \begin{enumerate}[label=\rm{(\alph*)}]
+            	\item To manufacture 400 batteries, the cost is \$600
+            	\item At a cost of \$400, the company can manufacture 600 batteries
+            	\item 	At a cost of \$400, the company can manufacture 600,000 batteries.
+            	\item To manufacture 400,000 batteries, the cost is \$600.
+            \end{enumerate}
+
+        }
+        \only<2>{                  % answer content
+            $(c)$ At a cost of \$400, the company can manufacture 600,000 batteries.
+        }
+        \end{textarea}
+    } 
+    
+\content                       % 4 arguments
+    {s5-300}                     % question internal identifier
+    {Grab Bag}                          % subject number
+    {300}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Determine a formula for the parabola that has its vertex at $(4,-5)$ and passes through the point $(6,3)$.
+            \begin{enumerate}[label=\rm{(\alph*)}]
+            	\item $y=(x+4)^2-5$
+            	\item $y=-2(x-6)^2+3$
+            	\item $y=(x-4)^2-5$
+            	\item $y=2(x-4)^2-5$
+            	\item $y=x-6)^2+3$	
+            \end{enumerate}
+
+            
+        }
+        \only<2>{                  % answer content
+            $(d)$ $y=2(x-4)^2-5$
+        }
+        \end{textarea}
+    }
+    
+\content                       % 4 arguments
+    {s5-400}                     % question internal identifier
+    {Grab Bag}                          % subject number
+    {400}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+           Determine the degree of the polynomial function $f(x)=2(x+4)^3(x+1)^2(x^2+3)(x-5)$.
+           \begin{enumerate}[label=\rm{(\alph*)}]
+           		\item 4
+           		\item 3
+           		\item 8
+           		\item 7
+           		\item None of these	
+           \end{enumerate}
+
+        }
+        \only<2>{                  % answer content
+            $(c)$ 8
+        }
+        \end{textarea}
+    }  
+    
+\content                       % 4 arguments
+    {s5-500}                     % question internal identifier
+    {Grab Bag}                          % subject number
+    {500}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            The revenue and cost functions for a particular product are given by $R(x)=-0.01x^2+60x$ and $C(x)=0.0009x^3+10x+2000$, where $x$ is the number of units produced and sold. Find a function to represent the profit as a function of $x$, and determine the number of units that should be produced and sold in order to maximize profit.\\ The number of units that should be produced and sold is:
+            \begin{enumerate}[label=\rm{(\alph*)}]
+            	\item Less than 120
+            	\item Between 120 and 130
+            	\item Between 130 and 140
+            	\item Between 140 and 150
+            	\item More than 150	
+            \end{enumerate}
+
+        }
+        \only<2>{                  % answer content
+            $(c)$ Between 130 and 140
+        }
+        \end{textarea}
+    }                                         
+        
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
