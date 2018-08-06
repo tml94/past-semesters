@@ -1,0 +1,316 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[scale=1.5]{ccicons}
+\usepackage[notextcomp]{kpfonts} 
+\usepackage[margin=1.0in]{geometry}
+\usepackage{amsthm,amssymb,amsmath}
+\usepackage[pdftex]{graphicx}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{bm}
+\usepackage{tabu}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{wasysym}
+
+
+
+\usepackage{color}
+\definecolor{darkblue}{rgb}{0, 0, .6}
+\definecolor{grey}{rgb}{.7, .7, .7}
+\usepackage[breaklinks]{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=darkblue,
+	anchorcolor=darkblue,
+	citecolor=darkblue,
+	pagecolor=darkblue,
+	urlcolor=darkblue,
+	pdftitle={},
+	pdfauthor={}
+}
+\usepackage{fancyhdr}
+\thispagestyle{fancy}
+%\lhead{Math 107}
+\chead{Calculator Scavenger Hunt Outline}
+%\rhead{}
+%\lfoot{}%\scriptsize This work is licensed under the \href{http://creativecommons.org/licenses/by-sa/3.0/us/}{Creative Commons Attribution-Share Alike 3.0 License}.} 
+%\cfoot{}
+%\rfoot{\ccbysa}
+\renewcommand{\headrulewidth}{.4pt}
+%\renewcommand{\footrulewidth}{.4pt}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem*{claim*}{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{journal}[theorem]{Journal}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem*{problem*}{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newtheorem{skeleton}[theorem]{Skeleton Proof}
+\newtheorem{activity}[theorem]{Activity}
+\newtheorem{intuitivedef}[theorem]{Intuitive Definition}
+
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\Char}{Characteristic}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\stab}{Stab}
+\DeclareMathOperator{\Stab}{Stab}
+\DeclareMathOperator{\orb}{\mathcal{O}}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\gl}{GL}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\A}{\mathbb{A}}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\PS}{\mathcal{P}}
+\DeclareMathOperator{\acc}{acc}
+
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+\newcommand{\comment}[1]{%
+  \text{\phantom{(#1)}} \tag{#1}
+}
+
+
+%Useful for cut and paste
+%\begin{enumerate}[label=\rm{(\alph*)}]
+
+\begin{document}
+\begin{center}
+	\textbf{Calculocked}	
+\end{center}
+
+\noindent
+Having survived your first week of the semester, you and your fellow group mates are dismayed to find that the doors to math class have locked and you are trapped inside. In order to escape the room you must utilize only your calculator to correctly solve several math problems. Once you have answered all the questions the doors will open revealing the grand prize.\\[4mm]
+
+\textbf{Instructions}
+\begin{itemize}
+	\item Each group member has a slightly different problem to solve
+	\item Each problem is meant to be solved using only your calculator
+	\item Once each member has solved their problem, add every member's solution together
+	\item Give this answer to your UTA
+	\begin{itemize}
+		\item If correct they will provide you with the next clue
+		\item If incorrect work together to figure out the correct response
+	\end{itemize}
+\end{itemize} 
+
+
+\newpage
+
+\begin{center}
+	\textbf{Clue 1: Order of Operations}
+\end{center}
+
+\noindent
+Evaluate the following expression:
+
+\vspace{1cm}
+
+\[ \frac{a+b^c-d}{e-g+h^2}+\frac{i-j}{k^3} \]
+
+\vspace{2cm}
+
+\noindent
+\textit{All answers should be rounded to the thousandths place}
+
+\vspace{4cm}
+Possible expressions we can use:\\[4mm]
+
+\noindent
+\[\frac{40+34^2-32}{22-31+47^2}+\frac{30-47}{9^3}\]
+\[\frac{15+22^4-25}{29-2+39^2}+\frac{41-2}{49^3}\]
+\[\frac{39+11^4-50}{28-35+15^2}+\frac{47-8}{46^3}\]
+\[\frac{20+17^3-34}{25-24+44^2}+\frac{16-28}{2^3}\]
+\[\frac{25+11^4-17}{29-10+15^2}+\frac{16-23}{4^3}\]
+\[\frac{28+24^2-1}{49-3+43^2}+\frac{45-24}{11^3}\]
+\[\frac{33+40^2-25}{11-17+47^2}+\frac{2-19}{11^3}\]
+\[\frac{47+26^2-26}{48-42+46^2}+\frac{30-40}{48^3}\]
+\[\frac{3+39^2-22}{13-45+24^2}+\frac{34-45}{24^3}\]
+\[\frac{25+10^5-6}{50-4+26^2}+\frac{46-49}{4^3}\]
+
+\newpage
+
+\begin{center}
+	\textbf{Clue 2: Fractions and Decimals and Numbers Oh My!}
+\end{center}
+
+\noindent
+Simplify the following expression:
+
+\vspace{1cm}
+
+\[ \frac{-a}{b}+\frac{c}{d} \]
+
+\vspace{2cm}
+
+\noindent
+\textit{The final answer should be a simplified fraction}
+
+\vspace{3cm}
+\noindent
+Note: When I was trying some of these on my calculator it was difficult to find fractions that will convert back to fractions (once the denominators get to big) for this one we might have them give us the individual fractions on their own\\
+Possible expressions we can use:
+\[ \frac{-29}{84}+\frac{36}{77}\\[4mm] \]
+\[ \frac{-23}{42}+\frac{80}{81}\\[4mm] \]
+\[ \frac{-61}{93}+\frac{2}{77}\\[4mm] \]
+\[ \frac{-21}{64}+\frac{77}{85}\\[4mm] \]
+\[ \frac{-73}{91}+\frac{16}{25}\\[4mm] \]
+\[ \frac{-30}{88}+\frac{79}{97}\\[4mm] \]
+\[ \frac{-36}{86}+\frac{66}{81}\\[4mm] \]
+\[ \frac{-19}{81}+\frac{2}{48}\\[4mm] \]
+\[ \frac{-38}{61}+\frac{91}{99}\\[4mm] \]
+\[ \frac{-31}{89}+\frac{24}{37}\\[4mm] \]
+
+\newpage
+
+\begin{center}
+	\textbf{Clue 3: Roots roots roots}	
+\end{center}
+
+\noindent
+Evaluate the following expression:
+
+\vspace{1cm}
+
+\[ \sqrt[a]{b} + \sqrt{c} + \sqrt[3]{-d}\]
+
+\vspace{2cm}
+
+\noindent
+\textit{All answers should be rounded to the thousandths place}
+
+\vspace{5cm}
+\noindent
+Possible expressions we can use:\\[4mm]
+
+\noindent
+\[\sqrt[27]{36}+\sqrt{74}+\sqrt[3]{-19}\\[4mm]\]
+\[\sqrt[7]{86}+\sqrt{97}+\sqrt[3]{-11}\\[4mm]\]
+\[\sqrt[19]{81}+\sqrt{73}+\sqrt[3]{-43}\\[4mm]\]
+\[\sqrt[30]{82}+\sqrt{7}+\sqrt[3]{-55}\\[4mm]\]
+\[\sqrt[17]{66}+\sqrt{33}+\sqrt[3]{-3}\\[4mm]\]
+\[\sqrt[19]{65}+\sqrt{5}+\sqrt[3]{-34}\\[4mm]\]
+\[\sqrt[15]{15}+\sqrt{75}+\sqrt[3]{-21}\\[4mm]\]
+\[\sqrt[22]{61}+\sqrt{45}+\sqrt[3]{-22}\\[4mm]\]
+\[\sqrt[19]{50}+\sqrt{47}+\sqrt[3]{-36}\\[4mm]\]
+\[\sqrt[10]{55}+\sqrt{68}+\sqrt[3]{-99}\\[4mm]\]
+
+
+\newpage
+
+\begin{center}
+	\textbf{Clue 4: Everybody loves graphing}
+\end{center}
+
+\noindent
+Graph the following equation:
+
+\vspace{1cm}
+
+\[y=ax^k+bx^l+cx^m+\cdots+dx+e\]
+
+\vspace{2cm}
+
+\begin{itemize}
+	\item Choose a window so that the entire graph can be seen between $x=-20$ and $x=20$
+	\item Find the maximum $y$-value between $x=-20$ and $x=20$
+\end{itemize}
+
+\vspace{2cm}
+\textit{All answers should be rounded to the thousandths place}
+
+\vspace{4cm}
+\noindent
+Possible equations we can use:\\[4mm]
+\noindent
+$y=-2.12x^4-27.43x^2+301.48x+180$\\[4mm]
+$y=-0.025(x-15)(x+4)^2(x-3)^2(x+16)$\\[4mm]
+$y=0.5(x-15)(x+4)^2(x-3)(x+16)$\\[4mm]
+$y=(x+10)(x-13)(x+4)^2(x-6)$\\[4mm]
+$y=0.02(x+18)^2(x-3)(x+3)(x-16)^2$\\[4mm]
+$y=-0.02(x-3)(x+3)(x-5)(x+5)^2(x-18)$\\[4mm]
+$y=-(x+18)(x-1)^2(x-10)$\\[4mm]
+$y=-(x+15)^2(x-1)^2(x-10)$\\[4mm]
+$y=-0.003(x+3)^2(x-4)(x-18)(x+18)^2$\\[4mm]
+$y=-(x+15)(x-3)^2(x-17)$\\[4mm]
+
+\newpage
+
+\begin{center}
+	\textbf{Clue 5: Everybody loves graphing 2}
+\end{center}
+
+\noindent
+Graph the following equation in the standard window:
+
+\[ \frac{ax^p+bx^r+c}{dx^q+ex^s+f} \]
+
+\vspace{2cm}
+\noindent
+Find the $x$-intercept.
+
+\vspace{2cm}
+\noindent
+\textit{All answers should be rounded to the thousandths place}
+
+
+
+
+
+\vspace{1cm}
+\noindent
+Possible equations we can use:\\[3mm]
+
+\noindent
+\[\frac{7x^3+5x-6}{3x^2-2x+7} \\[4mm]\]
+\[\frac{5x^9+3x-16}{10x^5-x+4}\\[4mm]\]
+\[\frac{2x^2+10x^7-1}{7x^5-6x-1}\\[4mm]\]
+\[\frac{4x^5-2x^2-1}{4x^5-6x-1}\\[4mm]\]
+\[\frac{3x^3+9x-2}{2x^5-5x^2-2}\\[4mm]\]
+\[\frac{3x^7+x^2-2}{5x^6-9x^3-4}\\[4mm]\]
+\[\frac{6x^9+7x^2-9}{9x^7-x^5+9}\\[4mm]\]
+\[\frac{9x^5+9x^3-6}{4x^4+6x^1-9}\\[4mm]\]
+\[\frac{5x^6+5x^7-7}{8x^4+8x-1}\\[4mm]\]
+\[\frac{4x^7+9x^3-8}{6x^7+2x^2-1}\\[4mm]\]
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+

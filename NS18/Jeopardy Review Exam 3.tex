@@ -1,0 +1,575 @@
+\documentclass{beamer}
+\setbeamertemplate{navigation symbols}{}
+\setbeamersize{text margin left=0cm, text margin right=0cm}
+\usepackage{tcolorbox}
+    \tcbuselibrary{skins}
+\usepackage{ocgx}
+\usepackage{enumitem}
+
+
+\newtcolorbox{InnerSubjectBox}{
+    enhanced,
+    nobeforeafter,
+    arc=0pt,
+    width=.2\paperwidth,
+    boxrule=.4pt,
+    colframe=white,
+    center upper,
+    interior style={
+        top color=blue,
+        bottom color=black
+    },
+    colupper=white,
+}
+
+\newcommand{\subjects}[5]{×
+    \begin{InnerSubjectBox}
+        #1
+    \end{InnerSubjectBox}%
+    \begin{InnerSubjectBox}
+        #2
+    \end{InnerSubjectBox}%
+    \begin{InnerSubjectBox}
+        #3
+    \end{InnerSubjectBox}%
+    \begin{InnerSubjectBox}
+        #4
+    \end{InnerSubjectBox}%
+    \begin{InnerSubjectBox}
+        #5
+    \end{InnerSubjectBox}
+}
+
+\newtcolorbox{InnerPrizeBox}{
+    enhanced,
+    nobeforeafter,
+    arc=0pt,
+    width=.2\paperwidth,
+    boxrule=.4pt,
+    colframe=white,
+    center upper,
+    interior style={
+        top color=blue,
+        bottom color=black
+    },
+    colupper=white,
+    valign=center,
+    fontupper=\LARGE\bfseries,
+    height=.176\paperheight
+}
+
+\newcommand{\prizes}{%
+    \foreach \i in {1,2,...,5}{%
+        \begin{InnerPrizeBox}%
+            \begin{ocg}{s\i-100}{s\i-100}{1}{\hyperlink{s\i-100}{100}}\end{ocg}
+        \end{InnerPrizeBox}%
+        }%
+
+    \foreach \i in {1,2,...,5}{%
+        \begin{InnerPrizeBox}%
+            \begin{ocg}{s\i-200}{s\i-200}{1}{\hyperlink{s\i-200}{200}}\end{ocg}
+        \end{InnerPrizeBox}%
+        }%
+
+    \foreach \i in {1,2,...,5}{%
+        \begin{InnerPrizeBox}%
+            \begin{ocg}{s\i-300}{s\i-300}{1}{\hyperlink{s\i-300}{300}}\end{ocg}
+        \end{InnerPrizeBox}%
+        }%
+
+    \foreach \i in {1,2,...,5}{%
+        \begin{InnerPrizeBox}%
+            \begin{ocg}{s\i-400}{s\i-400}{1}{\hyperlink{s\i-400}{400}}\end{ocg}
+        \end{InnerPrizeBox}%
+        }%
+
+    \foreach \i in {1,2,...,5}{%
+        \begin{InnerPrizeBox}%
+            \begin{ocg}{s\i-500}{s\i-500}{1}{\hyperlink{s\i-500}{500}}\end{ocg}
+        \end{InnerPrizeBox}%
+        }%
+    }
+
+\newtcolorbox{QuestionHeadFoot}[1][]{
+    enhanced,
+    before=\vskip-.7ex,
+    after=,
+    arc=0pt,
+    width=\paperwidth,
+    boxrule=.4pt,
+    colframe=white,
+    center upper,
+    center lower,
+    interior style={
+        top color=blue,
+        bottom color=black
+    },
+    colupper=white,
+    collower=white,
+    valign=center,
+    fontupper=\LARGE\bfseries,
+    fontlower=\LARGE\bfseries,
+    height=.176\paperheight,
+    sidebyside,
+    segmentation style={white,solid,line width=.4pt},
+    #1
+}
+
+\newcommand{\header}[2]{
+    \begin{QuestionHeadFoot}
+         #1 \tcblower #2
+    \end{QuestionHeadFoot}
+}
+
+\newcommand{\footer}[1]{
+    \begin{QuestionHeadFoot}[before=\vskip-2.7ex]
+        \hyperlink{question#1}{Question} \\ \hyperlink{answer#1}{Answer} \tcblower
+        \hideocg{#1}{Done!} \\ \hyperlink{home}{Home}
+    \end{QuestionHeadFoot}
+}
+
+\newcommand{\content}[4]{
+\begin{frame}
+    \hypertarget<1>{answer#1}{}
+    \hypertarget<2>{question#1}{}
+    \hypertarget{#1}{}
+    \header{#2}{#3}
+  #4
+    \footer{#1}
+\end{frame}
+}
+
+\newtcolorbox{textarea}[1][]{
+    nobeforeafter,
+    height=6.2cm,
+    boxrule=0pt,
+    center upper,
+    valign=center,
+    #1
+}
+
+\begin{document}
+\begin{frame}
+\hypertarget{home}{}
+\vspace*{-.5cm}
+    \subjects{Rationals}{Exponential}{Logarithm}{Log Prop}{Grab Bag}
+    \prizes
+\end{frame}
+
+\content                       % 4 arguments
+    {s1-100}                     % question internal identifier
+    {Rational}                          % subject number
+    {100}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            What is the domain of $f(x)=\frac{x^2-16}{x^2-x-6}$?
+        }
+        \only<2>{                  % answer content
+            $(-\infty,-2)\cup(-2,3)\cup(3,\infty)$
+        }
+        \end{textarea}
+    }
+\content                       % 4 arguments
+    {s1-200}                     % question internal identifier
+    {Rational}                          % subject
+    {200}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            What are the zeros of $f(x)=\frac{x^2-25}{x^2+x-6}$?
+        }
+        \only<2>{                  % answer content
+            $(5,0)$ and $(-5,0)$
+        }
+        \end{textarea}
+    }  
+    
+\content                       % 4 arguments
+    {s1-300}                     % question internal identifier
+    {Rational}                          % subject
+    {300}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Find all asymptotes of the equation $f(x)=\frac{5x-15}{x-4}$.
+        }
+        \only<2>{                  % answer content
+            Horizontal: $y=5$\\ Vertical: $x=4$
+        }
+        \end{textarea}
+    }   
+
+\content                       % 4 arguments
+    {s1-400}                     % question internal identifier
+    {Rational}                          % subject
+    {400}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Determine the equation for a rational function if the $x$-intercept of the function is $(4,0)$ , the $y-$intercept is $(0,-2)$, and the equations of the asymptotes are $y=-1$ and $x=2$.
+        }
+        \only<2>{                  % answer content
+            $y=\frac{-x+4}{x-2}$
+        }
+        \end{textarea}
+    }  
+    
+\content                       % 4 arguments
+    {s1-500}                     % question internal identifier
+    {Rational}                          % subject number
+    {500}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+           A T-shirt manufacturer has found the cost of running their business to be \$6 per T-shirt and has overhead costs of \$1,300. Write a function that represents the average cost for producing $x$ T-shirts.
+        }
+        \only<2>{                  % answer content
+            $y=\frac{6x+1300}{x}$
+        }
+        \end{textarea}
+    }   
+
+\content                       % 4 arguments
+    {s2-100}                     % question internal identifier
+    {Exponential}                          % subject number
+    {100}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Let $f(x)=3 \cdot \left(\frac{5}{3}\right)^x + 3$. What is the range of $f(x)$?
+        }
+        \only<2>{                  % answer content
+            $(3, \infty)$
+        }
+        \end{textarea}
+    }    
+    
+\content                       % 4 arguments
+    {s2-200}                     % question internal identifier
+    {Exponential}                          % subject number
+    {200}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            How much money should you invest at 7.5\% compounded quarterly so that you have \$10,000 after 5 years?
+        }
+        \only<2>{                  % answer content
+            $1,856.78$
+        }
+        \end{textarea}
+    }
+   
+\content                       % 4 arguments
+    {s2-300}                     % question internal identifier
+    {Exponential}                          % subject number
+    {300}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            A piece of machinery, initially purchased for \$25,000 decreases in value by 1.4\% per year. Determine a model of the form $y=C\cdot b^x$ that can be used to predict the value of this machinery if $x$ is measured in years.
+        }
+        \only<2>{                  % answer content
+            $y=25,000(0.986)^x$
+        }
+        \end{textarea}
+    } 
+    
+\content                       % 4 arguments
+    {s2-400}                     % question internal identifier
+    {Exponential}                          % subject number
+    {400}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            A species of snake was introduced in an area 10 years ago. It is estimated that there are 3,500 snakes in the area now, and the population has a continuous exponential growth rate of 7\% per year. How many snakes will there be 20 years from now?
+        }
+        \only<2>{                  % answer content
+            14,193 snakes will be present 20 years from now.
+        }
+        \end{textarea}
+    }  
+    
+\content                       % 4 arguments
+    {s2-500}                     % question internal identifier
+    {Exponential}                          % subject number
+    {500}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            What is the doubling time for a population of rabbits that grows from 60 to 500 in 18 months?
+        }
+        \only<2>{                  % answer content
+            5.885 months
+        }
+        \end{textarea}
+    }   
+    
+\content                       % 4 arguments
+    {s3-100}                     % question internal identifier
+    {Logarithm}                          % subject number
+    {100}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Write the following as a logarithm: \[245^\frac{1}{2}=x\]
+        }
+        \only<2>{                  % answer content
+            $\log_{245}(x)=\frac{1}{2}$
+        }
+        \end{textarea}
+    } 
+                            
+\content                       % 4 arguments
+    {s3-200}                     % question internal identifier
+    {Logarithm}                          % subject number
+    {200}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            What is the domain of $\log_3(x+11)$?.
+        }
+        \only<2>{                  % answer content
+            $(-11, \infty)$
+        }
+        \end{textarea}
+    }
+
+\content                       % 4 arguments
+    {s3-300}                     % question internal identifier
+    {Logarithm}                          % subject number
+    {300}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Solve the equation $3\log_2(x)=4$.
+        }
+        \only<2>{                  % answer content
+            $x=2.52$
+        }
+        \end{textarea}
+    }    
+
+\content                       % 4 arguments
+    {s3-400}                     % question internal identifier
+    {Logarithm}                          % subject number
+    {400}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+           A pork roast is removed from a freezer that is $22^\circ$F and placed in a room that is $77^\circ$F. The number of minutes that it takes the temperature of the roast to reach $x$ degrees Fahrenheit is given by the formula $T=\frac{100}{3}\ln\left(\frac{50}{77-x}\right)$. If 20 minutes have passed, what is the temperature of the pork roast?
+        }
+        \only<2>{                  % answer content
+            The pork roast is 50 degrees Fahrenheit after 20 minutes have elapsed since the pork roast was removed from the freezer.
+        }
+        \end{textarea}
+    }    
+
+\content                       % 4 arguments
+    {s3-500}                     % question internal identifier
+    {Logarithm}                          % subject number
+    {500}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Solve for $x$. \[ \frac{e^{x+5}}{e^{3x}}=e^{x-1}\]
+        }
+        \only<2>{                  % answer content
+            $x=2$
+        }
+        \end{textarea}
+    }
+    
+\content                       % 4 arguments
+    {s4-100}                     % question internal identifier
+    {Log Prop}                          % subject number
+    {100}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Expand as far as possible $\ln\left(\frac{e^2}{3}\right)$
+        }
+        \only<2>{                  % answer content
+            $2-\ln(3)$
+        }
+        \end{textarea}
+    } 
+    
+\content                       % 4 arguments
+    {s4-200}                     % question internal identifier
+    {Log Prop}                          % subject number
+    {200}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Write as a single logarithm: $\ln(x)+\frac{1}{3}\ln(27)-\ln(y)+\ln(z)$
+        }
+        \only<2>{                  % answer content
+            $\ln\left(\frac{27^{\frac{1}{3}}xz}{y}\right)$
+        }
+        \end{textarea}
+    }
+    
+\content                       % 4 arguments
+    {s4-300}                     % question internal identifier
+    {Log Prop}                          % subject number
+    {300}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Expand as far as possible: $\log_5\left(\frac{ab^2}{5cd}\right)$
+        }
+        \only<2>{                  % answer content
+            $\log_5(a)+2\log_5(b)-1-\log_5(c)-\log_5(d)$
+        }
+        \end{textarea}
+    } 
+    
+\content                       % 4 arguments
+    {s4-400}                     % question internal identifier
+    {Log Prop}                          % subject number
+    {400}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Write as a single logarithm: $\log_7(x)-\log_7(3)+4\log_7(y)-1$
+        }
+        \only<2>{                  % answer content
+            $\log_7\left(\frac{xy^4}{21}\right)$
+        }
+        \end{textarea}
+    }
+    
+\content                       % 4 arguments
+    {s4-500}                     % question internal identifier
+    {Log Prop}                          % subject number
+    {500}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Solve the following for $x$ \[\log(2x+1)-\log(x-2)=1\]
+        }
+        \only<2>{                  % answer content
+            $x=\frac{21}{8}$
+        }
+        \end{textarea}
+    } 
+
+\content                       % 4 arguments
+    {s5-100}                     % question internal identifier
+    {Grab Bag}                          % subject number
+    {100}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Suppose a cost-benefit model is given by $T=f(x)=\frac{22x}{100-x}$, where $T$ is the time in minutes, to memorize $x$ random facts. Approximately how many facts can be memorized if a person studies for 30 minutes?\\
+            \begin{enumerate}[label=\rm{(\alph*)}]
+            	\item Less than 15 facts
+            	\item Between 15 and 30 facts
+            	\item Between 30 and 45 facts
+            	\item Between 45 and 60 facts
+            	\item More than 60 facts
+            \end{enumerate}
+        }
+        \only<2>{                  % answer content
+            $(d)$ Between 45 and 60 facts
+        }
+        \end{textarea}
+    }
+    
+\content                       % 4 arguments
+    {s5-200}                     % question internal identifier
+    {Grab Bag}                          % subject number
+    {200}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Determine a formula for the exponential function of the form $y=C\cdot b^x$ that passes through the points $(-1,3)$ and $(2,192)$.
+            \begin{enumerate}[label=\rm{(\alph*)}]
+            	\item $y=12 \cdot 4^x$
+            	\item $y=3 \cdot 64^x$
+            	\item $y= 3 \cdot 63^x$
+            	\item $y=3 \cdot 8^x$
+            \end{enumerate}
+
+        }
+        \only<2>{                  % answer content
+            $(a)$ $y=12 \cdot 4^x$
+        }
+        \end{textarea}
+    } 
+    
+\content                       % 4 arguments
+    {s5-300}                     % question internal identifier
+    {Grab Bag}                          % subject number
+    {300}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            Determine a formula for the inverse function, $f^{-1}(x)$ for $f(x)=2^{x-5}$.
+            \begin{enumerate}[label=\rm{(\alph*)}]
+            	\item $f^{-1}(x)=5^{x+2}$
+            	\item $f^{-1}(x)=\log_2(x+5)$
+            	\item $f^{-1}(x)=\log_2(x-5)$
+            	\item $f^{-1}(x)=\log_2(x)+5$	
+            	\item $f^{-1}(x)=2^{x+5}$
+            \end{enumerate}
+
+            
+        }
+        \only<2>{                  % answer content
+            $(d)$ $f^{-1}(x)=\log_2(x)+5$
+        }
+        \end{textarea}
+    }
+    
+\content                       % 4 arguments
+    {s5-400}                     % question internal identifier
+    {Grab Bag}                          % subject number
+    {400}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+           Solve the equation: \[\log_9(x-3)+\log_9(2x+1)=1\]
+           \begin{enumerate}[label=\rm{(\alph*)}]
+           		\item $x=-\frac{3}{2}, 4$ only
+           		\item $x=\frac{11}{3}$ only
+           		\item $x=-\frac{1}{2}, 3$ only
+           		\item $x=3$ only
+           		\item $x=4$ only
+           \end{enumerate}
+
+        }
+        \only<2>{                  % answer content
+            $(e)$ $x=4$ only
+        }
+        \end{textarea}
+    }  
+    
+\content                       % 4 arguments
+    {s5-500}                     % question internal identifier
+    {Grab Bag}                          % subject number
+    {500}{                       % question prize
+        \begin{textarea}[]         % question/answer content
+        \only<1>{                  % question content
+            The population of a species of bird grows from 1300 to 1840 in 6 years. Use the exponential growth model $A(t)=Pe^{kt}$ with $t$ measured in years, to determine the value of $k$. The value of $k$ is:
+            \begin{enumerate}[label=\rm{(\alph*)}]
+            	\item More than 0.063
+            	\item Between 0.059 and 0.063
+            	\item Between 0.055 and 0.059
+            	\item Between 0.051 and 0.055
+            	\item Less than 0.051
+            \end{enumerate}
+
+        }
+        \only<2>{                  % answer content
+            $(c)$ Between 0.055 and 0.059
+        }
+        \end{textarea}
+    }                                         
+        
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
